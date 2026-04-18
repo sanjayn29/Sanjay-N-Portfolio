@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sanjayn.me/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sanjayn.me/#about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanjayn.me/#skills</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanjayn.me/#projects</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanjayn.me/#experience</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanjayn.me/#achievements</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanjayn.me/#certifications</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sanjayn.me/#contact</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
