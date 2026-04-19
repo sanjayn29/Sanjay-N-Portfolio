@@ -128,6 +128,9 @@ const Achievements = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
        {/* Section Header */}
 <div className="text-center mb-12">
+  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs border border-glow-cyan/40 text-glow-cyan bg-glow-cyan/10 mb-4">
+    Milestone Highlights
+  </span>
   <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-silver-primary mb-4">
     Key <span className="text-glow-cyan">Achievements</span>
   </h2>

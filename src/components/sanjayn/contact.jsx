@@ -178,6 +178,9 @@ const Contact = () => {
     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
   }`}
 >
+  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs border border-glow-cyan/40 text-glow-cyan bg-glow-cyan/10 mb-4">
+    Let's Connect
+  </span>
   <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-silver-primary mb-4">
     Get <span className="text-glow-cyan">In Touch</span>
   </h2>
