@@ -121,9 +121,7 @@ const Experience = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Professional Experience | Sanjay N</title>
-        <meta
+      <Helmet>        <meta
           name="description"
           content="Discover Sanjay N's professional experience as a Full Stack Developer and AI Engineer with freelance and internship roles in software development."
         />

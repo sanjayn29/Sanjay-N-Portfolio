@@ -66,9 +66,7 @@ const About = () => {
 
   return (
     <>
-      <Helmet>
-        <title>About Sanjay N | Full Stack Developer & AI Engineer</title>
-        <meta
+      <Helmet>        <meta
           name="description"
           content="Learn about Sanjay N, a Full Stack Developer and AI Engineer passionate about building intelligent solutions and modern web applications."
         />

@@ -72,9 +72,7 @@ const Certifications = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Professional Certifications | Sanjay N</title>
-        <meta
+      <Helmet>        <meta
           name="description"
           content="View Sanjay N's professional certifications from NVIDIA, Oracle, and other institutions in AI, Generative AI, and Machine Learning technologies."
         />

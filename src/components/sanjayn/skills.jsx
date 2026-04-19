@@ -95,9 +95,7 @@ const Skills = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Skills & Technologies | Sanjay N</title>
-        <meta
+      <Helmet>        <meta
           name="description"
           content="Explore Sanjay N's technical skills in Full Stack Development, AI/ML, databases, and modern technologies like React, Python, Java, and more."
         />

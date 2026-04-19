@@ -129,9 +129,7 @@ const Contact = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Sanjay N | Freelancer</title>
-        <meta
+      <Helmet>        <meta
           name="description"
           content="Get in touch with Sanjay N for collaboration, freelance projects, or inquiries. Connect via email, LinkedIn, or the contact form."
         />

@@ -178,9 +178,7 @@ const Achievements = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Achievements & Awards | Sanjay N</title>
-        <meta
+      <Helmet>        <meta
           name="description"
           content="View Sanjay N's achievements including hackathon wins, coding competition prizes, and recognition in AI, software development, and innovation."
         />

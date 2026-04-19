@@ -166,9 +166,7 @@ const Projects = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Projects Portfolio | Sanjay N</title>
-        <meta
+      <Helmet>        <meta
           name="description"
           content="View Sanjay N's featured projects including AI-powered applications, web development, and innovative solutions in FinTech and AgriTech."
         />
