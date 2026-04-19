@@ -7,11 +7,27 @@ import outliersLogo from '../../assert/image/OU.png';
 import tbiLogo from '../../assert/image/TBI.png';
 import cubeAiLogo from '../../assert/image/CUBEAI.png';
 
+const rotatingHighlights = [
+  '5 roles across startups, agencies & freelance',
+  'From internship to full-time product ownership',
+  'React · React Native · AI · Firebase — in production',
+  'Fast execution, clean delivery, real impact',
+  'Building across FinTech, AgriTech & EdTech domains',
+];
+
 const Experience = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeExperience, setActiveExperience] = useState(null);
   const [timelineProgress, setTimelineProgress] = useState(0);
+  const [activeHighlightIndex, setActiveHighlightIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveHighlightIndex(prev => (prev + 1) % rotatingHighlights.length);
+    }, 2200);
+    return () => window.clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -143,9 +159,19 @@ const Experience = () => {
             Professional <span className="text-glow-cyan">Experience</span>
           </h2>
           <div className="section-divider max-w-xs mx-auto" />
-          <p className="text-silver-secondary text-lg md:text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
-            Built across startups, freelance products, and AI-driven applications with fast execution and clean delivery.
-          </p>
+          {/* Rotating highlights */}
+          <div className="relative mx-auto mt-5 h-6 max-w-xl overflow-hidden">
+            {rotatingHighlights.map((highlight, index) => (
+              <p
+                key={highlight}
+                className={`absolute inset-0 text-sm text-silver-secondary transition-all duration-500 ${
+                  index === activeHighlightIndex ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              >
+                {highlight}
+              </p>
+            ))}
+          </div>
         </div>
 
         <div className="relative">

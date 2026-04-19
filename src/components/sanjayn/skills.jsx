@@ -30,9 +30,25 @@ import icoGithub     from 'devicon/icons/github/github-original.svg?url';
 import icoJupyter    from 'devicon/icons/jupyter/jupyter-original.svg?url';
 import icoFigma      from 'devicon/icons/figma/figma-original.svg?url';
 
+const rotatingHighlights = [
+  '27+ technologies across the full stack',
+  'Languages · Frameworks · Databases · AI/ML tools',
+  'From frontend pixels to backend APIs',
+  'TensorFlow · PyTorch · React · Firebase & more',
+  'Constantly learning, constantly shipping',
+];
+
 const Skills = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeHighlightIndex, setActiveHighlightIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveHighlightIndex(prev => (prev + 1) % rotatingHighlights.length);
+    }, 2200);
+    return () => window.clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -116,10 +132,19 @@ const Skills = () => {
             Skills & <span className="text-glow-cyan">Technologies</span>
           </h2>
           <div className="section-divider max-w-xs mx-auto" />
-          <p className="text-silver-secondary text-lg md:text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
-            My compact stack of tools, frameworks, and platforms I use to ship fast and smart.
-            <span className="text-glow-cyan font-medium"> Icon motion loop</span>
-          </p>
+          {/* Rotating highlights */}
+          <div className="relative mx-auto mt-5 h-6 max-w-xl overflow-hidden">
+            {rotatingHighlights.map((highlight, index) => (
+              <p
+                key={highlight}
+                className={`absolute inset-0 text-sm text-silver-secondary transition-all duration-500 ${
+                  index === activeHighlightIndex ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              >
+                {highlight}
+              </p>
+            ))}
+          </div>
         </div>
 
         <div className={`mb-6 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>

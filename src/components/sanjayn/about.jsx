@@ -43,9 +43,25 @@ const socials = [
   },
 ];
 
+const rotatingHighlights = [
+  'AI/ML Engineer · Full Stack Developer · Freelancer',
+  'B.Tech in AI & ML — Kongu Engineering College',
+  'Building intelligent software that solves real problems',
+  'Open to collaborations, internships & freelance work',
+  'From clean code to bold product thinking',
+];
+
 const About = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeHighlightIndex, setActiveHighlightIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveHighlightIndex(prev => (prev + 1) % rotatingHighlights.length);
+    }, 2200);
+    return () => window.clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -91,7 +107,20 @@ const About = () => {
             <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold text-silver-primary">
               About <span className="text-glow-cyan">Sanjay N</span>
             </h2>
-            <div className="section-divider max-w-sm mx-auto mt-4" />
+            <div className="section-divider max-w-sm mx-auto mt-4 mb-5" />
+            {/* Rotating highlights */}
+            <div className="relative mx-auto h-6 max-w-xl overflow-hidden">
+              {rotatingHighlights.map((highlight, index) => (
+                <p
+                  key={highlight}
+                  className={`absolute inset-0 text-sm text-silver-secondary transition-all duration-500 ${
+                    index === activeHighlightIndex ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  }`}
+                >
+                  {highlight}
+                </p>
+              ))}
+            </div>
           </div>
 
           <div className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-12 transition-all duration-700 delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
