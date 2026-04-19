@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { SiLeetcode, SiGithub, SiLinkedin } from 'react-icons/si';
 
 const Footer = () => {
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const currentYear = new Date().getFullYear();
+
+  // Pre-compute stable positions so Math.random() doesn't run on every re-render
+  const dots = useMemo(() =>
+    Array.from({ length: 10 }, () => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${(Math.random() * 3).toFixed(2)}s`,
+      duration: `${(2 + Math.random() * 2).toFixed(2)}s`,
+    })),
+  []);
 
   const socialLinks = [
     {
@@ -31,7 +41,7 @@ const Footer = () => {
     { id: 'projects', label: 'Projects' },
     { id: 'achievements', label: 'Achievements' },
     { id: 'certifications', label: 'Certifications' },
-    // { id: 'contact', label: 'Contact' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   const scrollToSection = (id) => {
@@ -134,17 +144,17 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Animated background elements */}
+      {/* Animated background elements — positions memoised so they don't shift on re-render */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(10)].map((_, i) => (
+        {dots.map((dot, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-glow-cyan rounded-full animate-pulse"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`,
+              left: dot.left,
+              top: dot.top,
+              animationDelay: dot.delay,
+              animationDuration: dot.duration,
               opacity: 0.2,
             }}
           />

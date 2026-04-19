@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Google Fonts are loaded via non-blocking <link> tags in index.html */
 
 @tailwind base;
 @tailwind components;
@@ -265,6 +265,7 @@
 
   .animate-delay-100 { animation-delay: 100ms; }
   .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-250 { animation-delay: 250ms; }
   .animate-delay-300 { animation-delay: 300ms; }
   .animate-delay-400 { animation-delay: 400ms; }
   .animate-delay-500 { animation-delay: 500ms; }
@@ -462,6 +463,11 @@
 
 .animate-bounce-subtle {
   animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* Used in loading fallbacks and navbar logo */
+.animate-bounce-slow {
+  animation: bounce-subtle 3s ease-in-out infinite;
 }
 
 .animate-twinkle {

@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import resumePDF from '../../assert/pdf/Sanjay N.pdf'; // Import the PDF for download
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
   const navLinks = [
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -39,9 +40,24 @@ const Navbar = () => {
         }
       }
     };
+    // Run once on mount to set the correct active section immediately
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -164,6 +180,7 @@ const Navbar = () => {
       </div>
       {/* Mobile Menu with Resume Button */}
       <div
+        ref={mobileMenuRef}
         className={`lg:hidden transition-all duration-300 overflow-hidden ${
           isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}

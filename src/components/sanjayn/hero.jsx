@@ -202,7 +202,9 @@ const Hero = () => {
                   className="absolute -translate-x-1/2 -translate-y-1/2"
                   style={{ left: pos.left, top: pos.top }}
                 >
-                  <div className="relative flex items-center justify-center" title={skill.name} tabIndex={0} role="button" aria-pressed="false">
+                  <div className="relative flex items-center justify-center" title={skill.name} tabIndex={0} role="button" aria-pressed="false"
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') e.currentTarget.click(); }}
+                  >
                     {/* circle — responsive size */}
                     <div className={`relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br ${skill.color} rounded-full flex flex-col items-center justify-center p-2 shadow-md border border-white/20 transform transition-all duration-400 hover:scale-110 focus:scale-110 max-w-full max-h-full`}>
                       <span className="text-[10px] sm:text-xs font-semibold text-white text-center leading-tight mt-1 max-w-[64px] truncate">{skill.name}</span>
@@ -229,13 +231,6 @@ const Hero = () => {
       <style>{`
         @keyframes fade-up { 0% { opacity: 0; transform: translateY(28px); } 100% { opacity: 1; transform: translateY(0); } }
         @keyframes float { 0%,100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-8px) rotate(1.5deg); } }
-        .animate-fade-up { animation: fade-up 0.9s ease-out forwards; opacity: 0; }
-        .animate-delay-100 { animation-delay: 0.1s; }
-        .animate-delay-200 { animation-delay: 0.2s; }
-        .animate-delay-250 { animation-delay: 0.25s; }
-        .animate-delay-300 { animation-delay: 0.3s; }
-        .animate-delay-400 { animation-delay: 0.4s; }
-        .animate-delay-500 { animation-delay: 0.5s; }
         .animate-float { animation: float 6s ease-in-out infinite; }
       `}</style>
     </section>

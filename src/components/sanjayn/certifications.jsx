@@ -72,7 +72,8 @@ const Certifications = () => {
 
   return (
     <>
-      <Helmet>        <meta
+      <Helmet>
+        <meta
           name="description"
           content="View Sanjay N's professional certifications from NVIDIA, Oracle, and other institutions in AI, Generative AI, and Machine Learning technologies."
         />
