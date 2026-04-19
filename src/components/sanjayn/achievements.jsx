@@ -56,7 +56,7 @@ const Achievements = () => {
   const achievements = [
     {
       title: 'Electrothon (Hackathon)',
-      organization: 'EEE Department',
+      organization: 'EEE Department - KEC',
       description: 'AI-powered E-log analysis platform',
       image: Electrothon2026Img,
       date: '2026',
@@ -66,7 +66,7 @@ const Achievements = () => {
     },
     {
       title: 'Hacksagon (Hackathon)',
-      organization: 'Freelancers Club',
+      organization: 'Freelancers Club - KEC',
       description: 'TravelTech mobile application',
       image: Hacksagon2026Img,
       date: '2026',
@@ -74,7 +74,7 @@ const Achievements = () => {
       category: '1st Prize',
       link: linkedInProfile,
     },
-    
+
     {
       title: 'Smart India Hackathon - Hardware Edition (Grand Finale)',
       organization: 'Ministry of Education, Government of India',
@@ -117,7 +117,7 @@ const Achievements = () => {
     },
     {
       title: 'KEC Hackathon',
-      organization: 'KEC',
+      organization: 'Kongu Engineering College',
       description: 'AgriTech team solution',
       image: Mar2025Img,
       date: '2025',
@@ -127,7 +127,7 @@ const Achievements = () => {
     },
     {
       title: 'Code Clash (SDC Fest)',
-      organization: 'Self Development Club',
+      organization: 'Self Development Club - KEC',
       description: 'Strong coding and logic skills',
       image: Nov2024Img,
       date: '2024',
@@ -137,7 +137,7 @@ const Achievements = () => {
     },
     {
       title: 'Coding Quest (NEWELLS)',
-      organization: 'AI Department',
+      organization: 'AI Department - KEC',
       description: 'Problem-solving competition',
       image: Sept2024Img,
       date: '2024',
@@ -147,7 +147,7 @@ const Achievements = () => {
     },
     {
       title: 'Slogan Writing',
-      organization: 'Red Ribbon Club',
+      organization: 'Red Ribbon Club - KEC',
       description: 'Awareness and social message',
       image: April2024Img,
       date: '2024',
@@ -209,9 +209,8 @@ const Achievements = () => {
               {rotatingHighlights.map((line, index) => (
                 <p
                   key={line}
-                  className={`absolute inset-0 inline-flex items-center justify-center gap-2 text-sm text-silver-secondary transition-all duration-500 md:text-base ${
-                    activeHighlightIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                  }`}
+                  className={`absolute inset-0 inline-flex items-center justify-center gap-2 text-sm text-silver-secondary transition-all duration-500 md:text-base ${activeHighlightIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                    }`}
                 >
                   <FiTrendingUp className="h-4 w-4 text-glow-cyan" />
                   {line}
