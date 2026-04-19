@@ -1,5 +1,7 @@
-import { useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { FiArrowUpRight, FiAward, FiCalendar, FiTrendingUp } from 'react-icons/fi';
+import { SiLinkedin } from 'react-icons/si';
 
 // Image imports (path: src/assert/image/)
 import April2024Img from '../../assert/image/RRC.jpg';
@@ -10,106 +12,169 @@ import Apr2025Img from '../../assert/image/BYTS-Hack.jpg';
 import Sept2025IbmImg from '../../assert/image/IBM-Hack.jpg';
 import Sept2025Img from '../../assert/image/SIH-KEC.jpg';
 import Dec2025Img from '../../assert/image/SIH-Final.jpg';
+import Hacksagon2026Img from '../../assert/image/Hacksagon hackathon.jpeg';
+import Electrothon2026Img from '../../assert/image/Electron hackthon.jpeg';
+
+const rotatingHighlights = [
+  '10 major achievements across 2024 to 2026',
+  'Multiple first-prize wins in competitive hackathons',
+  'Strong execution from idea to practical solution',
+];
 
 const Achievements = () => {
   const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeHighlightIndex, setActiveHighlightIndex] = useState(0);
 
   const linkedInProfile = 'https://www.linkedin.com/in/sanjayn29';
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveHighlightIndex((prev) => (prev + 1) % rotatingHighlights.length);
+    }, 2300);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   const achievements = [
     {
-      title: 'Red Ribbon Club – Slogan Writing Competition (2nd Prize)',
-      organization: 'Red Ribbon Club (RRC), Kongu Engineering College',
-      description: 'Secured Second Prize in Writing Competition to Focused on promoting awareness and social responsibility through impactful messaging.',
-      image: April2024Img,
-      date: 'Apr 2024',
-      fullDate: '2024-04-13', // For sorting
-      link: "https://www.linkedin.com/posts/sanjayn29_achievement-sloganwriting-redribbionclub-activity-7210675100243677185-r-7Y?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk",
+      title: 'Electrothon (Hackathon)',
+      organization: 'EEE Department',
+      description: 'AI-powered E-log analysis platform',
+      image: Electrothon2026Img,
+      date: '2026',
+      fullDate: '2026-01-25',
+      category: '1st Prize',
+      link: linkedInProfile,
     },
     {
-      title: 'Coding Quest – NEWELL’S 2024 (2nd Prize)',
-      organization: 'Department of Artificial Intelligence, Kongu Engineering College',
-      description: 'Secured Second Prize in Codeing Quest a an intra-department symposium. Demonstrated strong problem-solving and logical thinking.',
-      image: Sept2024Img,
-      date: 'Sep 2024',
-      fullDate: '2024-09-11',
-      link: "https://www.linkedin.com/posts/sanjayn29_codingchallenge-ai-symposium-activity-7247119094980722688-MEym?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk",
-    },
-    {
-      title: 'Code Clash – SDC Fest 2024 (3rd Prize)',
-      organization: 'Self Development Club (SDC), Kongu Engineering College',
-      description: 'Secured Third Prize in Code Clash, a technical coding competition during SDC Fest 2024. Demonstrated strong logical thinking.',
-      image: Nov2024Img,
-      date: 'Nov 2024',
-      fullDate: '2024-11-09',
-      link: "https://www.linkedin.com/posts/sanjayn29_codingcontest-sdcfest2024-codeclash-activity-7261320712584318976-y9jL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk",
-    },
-    {
-      title: "KEC Hackathon 2025 – Software Edition (Runner up)",
-      organization: 'Kongu Engineering College',
-      description: 'State-level 30-hour hackathon organized by Innovation & Entrepreneurship Forum. Developed an AgriTech solution with my team.',
-      image: Mar2025Img,
-      date: 'Mar 2025',
-      fullDate: '2025-03-10',
-      link: "https://www.linkedin.com/posts/sanjayn29_kec-kechackathon2025-hackathon-activity-7306903277680357377-FCnX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk",
-    },
-    {
-      title: 'BYTS India Hackathon (BIH) – Best Innovation',
-      organization: 'BYTS , Kongu Engineering College',
-      description: 'Secured the Best Innovation Award in BYTS India Hackathon – Artificial Intelligence Edition. Developed an Fintech AI-based solution .',
-      image: Apr2025Img,
-      date: 'Apr 2025',
-      fullDate: '2025-04-11',
-      link: "https://www.linkedin.com/posts/sandeepmareeswaran_hackathon-innovation-mentorship-ugcPost-7318833641831153664-6UnE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk",
-    },
-    {
-      title: 'Cognitive X Gen AI Hackathon – 1st Prize',
-      organization: 'Kongu Engineering College',
-      description: 'Secured 1st Prize in Gen AI Hackathon collaboration with IBM and SmartBridge . Developed an AI-powered finance application.',
-      image: Sept2025IbmImg,
-      date: 'Sep 2025',
-      fullDate: '2025-09-16', // Slight offset for sorting if same month
-      link: "https://www.linkedin.com/posts/sanjayn29_genai-hackathon-ibm-activity-7374820219371982848-25jS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk",
+      title: 'Hacksagon (Hackathon)',
+      organization: 'Freelancers Club',
+      description: 'TravelTech mobile application',
+      image: Hacksagon2026Img,
+      date: '2026',
+      fullDate: '2026-02-20',
+      category: '1st Prize',
+      link: linkedInProfile,
     },
     
     {
-      title: 'SIH Internal Hackathon 2025 – 1st Prize',
-      organization: 'Kongu Engineering College',
-      description: 'Secured 1st Prize in the SIH Internal Hackathon under the Software category. Developed an AI-powered solution for problem ID: SIH25073.',
-      image: Sept2025Img,
-      date: 'Sep 2025',
-      fullDate: '2025-09-20',
-      link: "https://www.linkedin.com/posts/sanjayn29_smartindiahackathon-teamwork-innovation-activity-7376306740541177857-KX6R?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk",
-    },
-    
-    {
-      title: 'Smart India Hackathon 2025 – Hardware Edition (Grand Finale)',
+      title: 'Smart India Hackathon - Hardware Edition (Grand Finale)',
       organization: 'Ministry of Education, Government of India',
-      description: 'Participated in the Smart India Hackathon Grand Finale. Contributed to hardware solution and gaining national-level experience.',
+      description: 'National-level hardware solution',
       image: Dec2025Img,
-      date: 'Dec 2025',
-      fullDate: '2025-12-08', // Specific dates from original
-      link: "https://www.linkedin.com/posts/sanjayn29_sih2025-smartindiahackathon-hackathonexperience-activity-7408162536996597760-aPqo?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk",
+      date: '2025',
+      fullDate: '2025-12-08',
+      category: 'Finalist',
+      link: 'https://www.linkedin.com/posts/sanjayn29_sih2025-smartindiahackathon-hackathonexperience-activity-7408162536996597760-aPqo?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
+    },
+    {
+      title: 'SIH Internal Hackathon - Software Edition',
+      organization: 'Kongu Engineering College',
+      description: 'AI solution for problem ID: SIH25073',
+      image: Sept2025Img,
+      date: '2025',
+      fullDate: '2025-09-20',
+      category: '1st Prize',
+      link: 'https://www.linkedin.com/posts/sanjayn29_smartindiahackathon-teamwork-innovation-activity-7376306740541177857-KX6R?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
+    },
+    {
+      title: 'Cognitive X Gen AI Hackathon',
+      organization: 'KEC in collaboration with IBM and SmartBridge',
+      description: 'GenAI finance application',
+      image: Sept2025IbmImg,
+      date: '2025',
+      fullDate: '2025-09-16',
+      category: '1st Prize',
+      link: 'https://www.linkedin.com/posts/sanjayn29_genai-hackathon-ibm-activity-7374820219371982848-25jS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
+    },
+    {
+      title: 'BYTS India Hackathon',
+      organization: 'BYTS',
+      description: 'FinTech AI-based solution',
+      image: Apr2025Img,
+      date: '2025',
+      fullDate: '2025-04-11',
+      category: 'Best Innovation',
+      link: 'https://www.linkedin.com/posts/sandeepmareeswaran_hackathon-innovation-mentorship-ugcPost-7318833641831153664-6UnE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
+    },
+    {
+      title: 'KEC Hackathon',
+      organization: 'KEC',
+      description: 'AgriTech team solution',
+      image: Mar2025Img,
+      date: '2025',
+      fullDate: '2025-03-10',
+      category: 'Runner-up',
+      link: 'https://www.linkedin.com/posts/sanjayn29_kec-kechackathon2025-hackathon-activity-7306903277680357377-FCnX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
+    },
+    {
+      title: 'Code Clash (SDC Fest)',
+      organization: 'Self Development Club',
+      description: 'Strong coding and logic skills',
+      image: Nov2024Img,
+      date: '2024',
+      fullDate: '2024-11-09',
+      category: '3rd Prize',
+      link: 'https://www.linkedin.com/posts/sanjayn29_codingcontest-sdcfest2024-codeclash-activity-7261320712584318976-y9jL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
+    },
+    {
+      title: 'Coding Quest (NEWELLS)',
+      organization: 'AI Department',
+      description: 'Problem-solving competition',
+      image: Sept2024Img,
+      date: '2024',
+      fullDate: '2024-09-11',
+      category: '2nd Prize',
+      link: 'https://www.linkedin.com/posts/sanjayn29_codingchallenge-ai-symposium-activity-7247119094980722688-MEym?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
+    },
+    {
+      title: 'Slogan Writing',
+      organization: 'Red Ribbon Club',
+      description: 'Awareness and social message',
+      image: April2024Img,
+      date: '2024',
+      fullDate: '2024-04-13',
+      category: '2nd Prize',
+      link: 'https://www.linkedin.com/posts/sanjayn29_achievement-sloganwriting-redribbionclub-activity-7210675100243677185-r-7Y?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
     },
   ];
 
-  // Group achievements by year
-  const groupByYear = achievements.reduce((groups, achievement) => {
-    const year = achievement.fullDate.split('-')[0];
-    if (!groups[year]) {
-      groups[year] = [];
-    }
-    groups[year].push(achievement);
+  const groupedByYear = useMemo(() => {
+    const groups = achievements.reduce((acc, achievement) => {
+      const year = achievement.fullDate.split('-')[0];
+      if (!acc[year]) acc[year] = [];
+      acc[year].push(achievement);
+      return acc;
+    }, {});
+
+    Object.keys(groups).forEach((year) => {
+      groups[year].sort((a, b) => new Date(b.fullDate) - new Date(a.fullDate));
+    });
+
     return groups;
-  }, {});
+  }, [achievements]);
 
-  // Sort years descending (2025 first, then 2024)
-  const sortedYears = Object.keys(groupByYear).sort((a, b) => b - a);
-
-  // Sort achievements within each year by fullDate descending
-  sortedYears.forEach(year => {
-    groupByYear[year].sort((a, b) => new Date(b.fullDate) - new Date(a.fullDate));
-  });
+  const sortedYears = useMemo(() => {
+    return Object.keys(groupedByYear).sort((a, b) => Number(b) - Number(a));
+  }, [groupedByYear]);
 
   return (
     <>
@@ -124,100 +189,124 @@ const Achievements = () => {
         <meta property="og:url" content="https://sanjayn.me/#achievements" />
         <meta property="og:type" content="website" />
       </Helmet>
-    <section id="achievements" ref={sectionRef} className="relative py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-       {/* Section Header */}
-<div className="text-center mb-12">
-  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs border border-glow-cyan/40 text-glow-cyan bg-glow-cyan/10 mb-4">
-    Milestone Highlights
-  </span>
-  <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-silver-primary mb-4">
-    Key <span className="text-glow-cyan">Achievements</span>
-  </h2>
-  <div className="section-divider max-w-xs mx-auto" />
-  <p className="text-silver-secondary text-lg md:text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
-    Discover my standout accomplishments in hackathons , coding competitions and innovation challenges.
-  </p>
-</div>
 
-        {/* Achievements by Year - Rows and Columns */}
-        <div className="space-y-12">
-          {sortedYears.map((year, yearIndex) => (
-            <div key={year} className="space-y-6">
-              {/* Year Header */}
-              <div className="flex items-center gap-3">
-                <div className="w-1 h-8 bg-glow-cyan rounded-full"></div>
-                <h3 className="font-display text-2xl font-bold text-silver-primary">
-                  {year}
-                </h3>
-              </div>
-
-              {/* Grid for this year */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {groupByYear[year].map((achievement, index) => (
-                  <div
-                    key={index}
-                    className="group glass-card hover-glow-cyan"
-                  >
-                    {/* Full Image */}
-                    <div className="relative h-64 mb-4 overflow-hidden rounded-lg">
-                      {achievement.image ? (
-                        <img
-                          src={achievement.image}
-                          alt={`${achievement.title} proof`}
-                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-                          <div className="text-6xl opacity-75">🏆</div>
-                        </div>
-                      )}
-                      {/* Semi-transparent overlay for text readability */}
-                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-4">
-                      {/* Title */}
-                      <h4 className="font-display text-lg font-semibold text-silver-primary mb-2 group-hover:text-glow-cyan transition-colors duration-300 line-clamp-2">
-                        {achievement.title}
-                      </h4>
-
-                      {/* Organization */}
-                      <p className="text-glow-cyan text-sm font-medium mb-2">
-                        {achievement.organization}
-                      </p>
-
-                      {/* Description */}
-                      <p className="text-silver-muted text-sm leading-relaxed mb-3 line-clamp-3">
-                        {achievement.description}
-                      </p>
-
-                      {/* Footer: Date and Link */}
-                      <div className="flex justify-between items-center pt-2 border-t border-gray-600">
-                        <span className="text-xs opacity-75">{achievement.date}</span>
-                        <a
-                          href={achievement.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-glow-cyan text-xs hover:text-silver-primary transition-colors duration-300 flex items-center gap-1"
-                        >
-                          <span>LinkedIn</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.02-1.57.27-2.12a2.89 2.89 0 0 1 2.24-1.08c.78 0 1.62.42 1.62 1.88v4.25h2.79v-5.5c0-2.48-1.4-3.84-3.26-4.08a3.5 3.5 0 0 0-3.57 3.47v4.15h-2.79V9.18c0-.53 0-1.05.07-1.57s.23-1 .5-1.37.56-.7 1-.87.88-.32 1.54-.32c1.25 0 2.08.74 2.08 1.82v5.42h-2.79z" />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+      <section id="achievements" ref={sectionRef} className="relative overflow-hidden py-24 md:py-32">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -left-12 top-20 h-72 w-72 rounded-full bg-glow-cyan/10 blur-3xl" />
+          <div className="absolute -right-10 bottom-10 h-72 w-72 rounded-full bg-glow-blue/10 blur-3xl" />
+          <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(circle_at_20%_25%,rgba(34,211,238,0.14)_1px,transparent_1.5px),radial-gradient(circle_at_82%_70%,rgba(96,165,250,0.14)_1px,transparent_1.5px)] [background-size:110px_110px]" />
         </div>
-      </div>
-    </section>
+
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className={`mb-12 text-center transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-glow-cyan/40 bg-glow-cyan/10 px-3 py-1 text-xs text-glow-cyan">
+              Milestone Highlights
+            </span>
+            <h2 className="mb-4 font-display text-3xl font-bold text-silver-primary md:text-4xl lg:text-5xl">
+              Key <span className="text-glow-cyan">Achievements</span>
+            </h2>
+            <div className="relative mx-auto h-6 max-w-2xl overflow-hidden">
+              {rotatingHighlights.map((line, index) => (
+                <p
+                  key={line}
+                  className={`absolute inset-0 inline-flex items-center justify-center gap-2 text-sm text-silver-secondary transition-all duration-500 md:text-base ${
+                    activeHighlightIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  }`}
+                >
+                  <FiTrendingUp className="h-4 w-4 text-glow-cyan" />
+                  {line}
+                </p>
+              ))}
+            </div>
+            <div className="section-divider mx-auto mt-4 max-w-xs" />
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-silver-secondary md:text-xl">
+              Discover standout accomplishments across hackathons, coding competitions, and innovation challenges.
+            </p>
+          </div>
+
+          <div className="space-y-14">
+            {sortedYears.map((year, yearIndex) => (
+              <div key={year} className={`py-2 transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`} style={{ transitionDelay: `${yearIndex * 120}ms` }}>
+                <div className="mb-14 mt-2 flex items-center justify-between gap-3 rounded-xl border border-border/60 bg-space-card/55 px-4 py-4 backdrop-blur-md">
+                  <div className="inline-flex items-center gap-3">
+                    <span className="h-8 w-1 rounded-full bg-glow-cyan" />
+                    <h3 className="font-display text-2xl font-bold text-silver-primary">{year}</h3>
+                  </div>
+                  <span className="rounded-full border border-glow-cyan/30 bg-glow-cyan/10 px-3 py-1 text-xs text-glow-cyan">
+                    {groupedByYear[year].length} achievements
+                  </span>
+                </div>
+
+                <div className="relative">
+                  <div className="pointer-events-none absolute bottom-4 left-4 top-4 hidden w-px bg-gradient-to-b from-glow-cyan/70 via-glow-blue/35 to-transparent md:block" />
+
+                  <div className="grid gap-5 md:pl-10 lg:grid-cols-3">
+                    {groupedByYear[year].map((achievement, index) => (
+                      <article
+                        key={achievement.fullDate + achievement.title}
+                        className="group relative overflow-hidden rounded-2xl border border-border/60 bg-space-card/70 p-4 backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:border-glow-cyan/50 hover:shadow-[0_0_26px_rgba(34,211,238,0.16)] active:border-glow-cyan/65 active:bg-glow-cyan/10 active:shadow-[0_0_30px_rgba(34,211,238,0.24)] md:p-5"
+                        style={{ transitionDelay: `${index * 60}ms` }}
+                      >
+                        <div className="pointer-events-none absolute left-[-1.9rem] top-8 hidden h-3 w-3 rounded-full border border-glow-cyan/70 bg-space-deep md:block" />
+
+                        <div className="relative mb-4 flex h-56 items-center justify-center overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-space-deep/90 to-space-card/60 p-2">
+                          <img
+                            src={achievement.image}
+                            alt={`${achievement.title} proof`}
+                            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-space-deep/65 via-transparent to-transparent" />
+                          <div className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full border border-glow-cyan/30 bg-space-card/80 px-2.5 py-1 text-xs text-glow-cyan">
+                            <FiAward className="h-3.5 w-3.5" />
+                            {achievement.category}
+                          </div>
+                        </div>
+
+                        <h4 className="font-display text-lg font-semibold leading-snug text-silver-primary transition-colors duration-300 group-hover:text-glow-cyan">
+                          {achievement.title}
+                        </h4>
+                        <p className="mt-1 text-sm font-medium text-glow-cyan">{achievement.organization}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-silver-muted">{achievement.description}</p>
+
+                        <div className="mt-4 flex items-center justify-between border-t border-border/55 pt-3">
+                          <span className="inline-flex items-center gap-1.5 rounded-full border border-glow-cyan/35 bg-glow-cyan/10 px-3 py-1 text-xs font-medium text-glow-cyan">
+                            <FiCalendar className="h-3.5 w-3.5" />
+                            {achievement.fullDate}
+                          </span>
+                          <a
+                            href={achievement.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-full border border-glow-cyan/35 bg-glow-cyan/10 px-3 py-1 text-xs font-medium text-glow-cyan transition-all duration-300 hover:border-glow-cyan/60 hover:bg-glow-cyan/20"
+                          >
+                            View Post
+                            <FiArrowUpRight className="h-3.5 w-3.5" />
+                          </a>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={`mt-10 rounded-2xl border border-glow-cyan/25 bg-gradient-to-r from-glow-cyan/10 via-space-card/45 to-glow-blue/10 p-5 text-center backdrop-blur-lg transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            <p className="text-silver-secondary">Want to see the complete journey and updates?</p>
+            <a
+              href={linkedInProfile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-2 rounded-full border border-glow-cyan/35 bg-space-card/70 px-4 py-2 text-sm font-medium text-silver-primary transition-all duration-300 hover:border-glow-cyan/60 hover:text-glow-cyan"
+            >
+              <SiLinkedin className="h-4 w-4 text-[#0A66C2]" />
+              Visit LinkedIn Profile
+              <FiArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
