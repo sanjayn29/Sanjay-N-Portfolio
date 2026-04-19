@@ -244,9 +244,13 @@ const Achievements = () => {
                     {groupedByYear[year].map((achievement, index) => (
                       <article
                         key={achievement.fullDate + achievement.title}
-                        className="group relative overflow-hidden rounded-2xl border border-border/60 bg-space-card/70 p-4 backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:border-glow-cyan/50 hover:shadow-[0_0_26px_rgba(34,211,238,0.16)] active:border-glow-cyan/65 active:bg-glow-cyan/10 active:shadow-[0_0_30px_rgba(34,211,238,0.24)] md:p-5"
+                        className="group relative overflow-hidden rounded-2xl border border-border/60 bg-space-card/70 p-4 backdrop-blur-lg transition-all duration-500 hover:-translate-y-1 hover:border-glow-cyan/50 hover:shadow-[0_0_32px_rgba(34,211,238,0.22)] active:border-glow-cyan/65 active:bg-glow-cyan/10 active:shadow-[0_0_36px_rgba(34,211,238,0.28)] md:p-5"
                         style={{ transitionDelay: `${index * 60}ms` }}
                       >
+                        {/* Card radial glow bg effect */}
+                        <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(34,211,238,0.12) 0%, rgba(96,165,250,0.06) 55%, transparent 75%)' }} />
+                        <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-700 group-hover:opacity-100" style={{ background: 'linear-gradient(135deg, rgba(34,211,238,0.05) 0%, transparent 60%, rgba(96,165,250,0.05) 100%)' }} />
+
                         <div className="pointer-events-none absolute left-[-1.9rem] top-8 hidden h-3 w-3 rounded-full border border-glow-cyan/70 bg-space-deep md:block" />
 
                         <div className="relative mb-4 flex h-56 items-center justify-center overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-space-deep/90 to-space-card/60 p-2">
@@ -278,8 +282,9 @@ const Achievements = () => {
                             href={achievement.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-full border border-glow-cyan/35 bg-glow-cyan/10 px-3 py-1 text-xs font-medium text-glow-cyan transition-all duration-300 hover:border-glow-cyan/60 hover:bg-glow-cyan/20"
+                            className="inline-flex items-center gap-1.5 rounded-full border border-[#0A66C2]/40 bg-[#0A66C2]/10 px-3 py-1 text-xs font-medium text-[#0A66C2] transition-all duration-300 hover:border-[#0A66C2]/70 hover:bg-[#0A66C2]/20 hover:text-[#0A66C2]"
                           >
+                            <SiLinkedin className="h-3.5 w-3.5" />
                             View Post
                             <FiArrowUpRight className="h-3.5 w-3.5" />
                           </a>
