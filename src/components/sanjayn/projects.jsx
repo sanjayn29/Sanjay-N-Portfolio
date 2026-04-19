@@ -2,12 +2,18 @@ import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 // Image imports (path: src/assert/image/)
-import KongutbiImg from '../../assert/image/Kongutbi.png';
-import ArameyecareImg from '../../assert/image/Arameyecare.png';
-import CashmanImg from '../../assert/image/Cashman.png';
-import SmartspendImg from '../../assert/image/Smartspend.png';
-import NeovateImg from '../../assert/image/Neovate.png';
-import FabspectorImg from '../../assert/image/Fabspector.png';
+import KongutbiImg      from '../../assert/image/TBI-WS.png';
+import ArameyecareImg   from '../../assert/image/ARAM-WS.png';
+import CashmanImg       from '../../assert/image/CashMan.webp';
+import SmartspendImg    from '../../assert/image/SPEND-WS.png';
+import NeovateImg       from '../../assert/image/NEOVATE-WS.png';
+import FabspectorImg    from '../../assert/image/Fabspector.jpg';
+import ZeonImg          from '../../assert/image/Zeon.jpg';
+import SocialMediaImg   from '../../assert/image/Social Media Engagement.png';
+import PocketCareImg    from '../../assert/image/PocketCare.jpg';
+import MasImg           from '../../assert/image/MAS-WS.png';
+import MahimitraImg     from '../../assert/image/MAHAMITRA-WS.png';
+import ImageAnimationImg from '../../assert/image/Image-Animation.png';
 
 const Projects = () => {
   const sectionRef = useRef(null);
@@ -84,6 +90,60 @@ const Projects = () => {
       date: 'Nov 2025 - Dec 2025',
       link: 'https://github.com/sanjayn29/SiH-Fabric-Defect-Detector',
       image: FabspectorImg,
+    },
+    {
+      title: 'EV Log Analyser – AI-Powered E-Log Analysis Platform',
+      description: 'AI-powered platform for automated EV charging log analysis, anomaly detection and insight generation using LLM-based reasoning.',
+      tech: ['Python', 'AI/LLM', 'React', 'Flask'],
+      category: 'AI / Data',
+      date: 'Jan 2026 - Feb 2026',
+      link: 'https://github.com/sanjayn29',
+      image: ZeonImg,
+    },
+    {
+      title: 'Social Media Engagement – Power BI Dashboard',
+      description: 'Interactive Power BI dashboard analysing social media engagement metrics, audience trends, and content performance across platforms.',
+      tech: ['Power BI', 'Data Analytics', 'DAX'],
+      category: 'Data Analytics',
+      date: 'Oct 2025 - Nov 2025',
+      link: 'https://github.com/sanjayn29',
+      image: SocialMediaImg,
+    },
+    {
+      title: 'PocketCare – Personal Health & Finance Tracker',
+      description: 'A React Native mobile app for tracking personal health goals, daily tasks, and finances with an integrated AI assistant and push notifications.',
+      tech: ['React Native', 'Expo', 'Firebase', 'AI Integration'],
+      category: 'Mobile App / AI',
+      date: 'Mar 2026 - Present',
+      link: 'https://github.com/sanjayn29',
+      image: PocketCareImg,
+    },
+    {
+      title: 'Muthu Ambulance Service – Booking Platform',
+      description: 'Web platform for ambulance booking with real-time availability tracking, location-based dispatch, and admin management dashboard.',
+      tech: ['React', 'TailwindCSS', 'Firebase'],
+      category: 'Web Development',
+      date: 'Dec 2025 - Jan 2026',
+      link: 'https://github.com/sanjayn29',
+      image: MasImg,
+    },
+    {
+      title: 'Mahamitra Boutique – E-Commerce Platform',
+      description: 'Full-stack e-commerce platform for a boutique with product management, cart, order tracking and payment integration.',
+      tech: ['React', 'TailwindCSS', 'Firebase', 'Payment APIs'],
+      category: 'E-commerce',
+      date: 'Feb 2026 - Mar 2026',
+      link: 'https://github.com/sanjayn29',
+      image: MahimitraImg,
+    },
+    {
+      title: 'Image Animation Website',
+      description: 'Creative website showcasing smooth image-based animations and interactive transitions built with modern CSS and JavaScript techniques.',
+      tech: ['HTML', 'CSS', 'JavaScript'],
+      category: 'Web Development',
+      date: 'Sept 2024 - Oct 2024',
+      link: 'https://github.com/sanjayn29',
+      image: ImageAnimationImg,
     },
   ];
 
