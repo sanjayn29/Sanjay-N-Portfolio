@@ -4,9 +4,16 @@ import nvidiaImg from '../../assert/image/nvidia.png';
 import aiFoundationImg from '../../assert/image/AI-Foundation.png';
 import aiGenerativeImg from '../../assert/image/AI-Generative.png';
 
+const rotatingHighlights = [
+  'Industry-recognized learning milestones',
+  'Strong AI and generative systems foundation',
+  'Focused on practical, product-ready implementation',
+];
+
 const Certifications = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeHighlightIndex, setActiveHighlightIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,6 +30,14 @@ const Certifications = () => {
     }
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveHighlightIndex((prev) => (prev + 1) % rotatingHighlights.length);
+    }, 2200);
+
+    return () => window.clearInterval(interval);
   }, []);
 
   const certifications = [
@@ -78,6 +93,18 @@ const Certifications = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-silver-primary mb-4">
             Professional <span className="text-glow-cyan">Certifications</span>
           </h2>
+          <div className="relative mx-auto h-6 max-w-xl overflow-hidden">
+            {rotatingHighlights.map((highlight, index) => (
+              <p
+                key={highlight}
+                className={`absolute inset-0 text-sm text-silver-secondary transition-all duration-500 ${
+                  index === activeHighlightIndex ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              >
+                {highlight}
+              </p>
+            ))}
+          </div>
           <div className="section-divider max-w-xs mx-auto" />
           <p className="text-silver-secondary text-lg md:text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
             Explore my recognized credentials in AI and machine learning from top industry leaders.
@@ -112,14 +139,16 @@ const Certifications = () => {
                   Skills: {cert.skills}
                 </p>
                 <div className="flex items-center justify-center gap-3 mt-3 text-silver-muted text-xs">
-                  <span className="bg-border/50 px-2 py-1 rounded-full">{cert.date}</span>
+                  <span className="rounded-full border border-glow-cyan/40 bg-glow-cyan/12 px-2.5 py-1 font-semibold text-glow-cyan">
+                    {cert.date}
+                  </span>
                   <a
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono hover:text-glow-cyan transition-colors duration-300 underline decoration-1 underline-offset-2"
+                    className="rounded-full border border-glow-blue/35 bg-glow-blue/10 px-2.5 py-1 font-medium text-silver-primary transition-all duration-300 hover:border-glow-cyan/45 hover:bg-glow-cyan/10 hover:text-glow-cyan"
                   >
-                    click to view
+                    Click to View
                   </a>
                 </div>
               </div>
