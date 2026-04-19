@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <SocialSidebar />
         <Suspense fallback={
           <div className="min-h-screen flex items-center justify-center bg-space-deep">

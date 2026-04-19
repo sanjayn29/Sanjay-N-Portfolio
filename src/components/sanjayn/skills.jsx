@@ -1,6 +1,35 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 
+// Local devicon SVG imports (bundled via Vite — no CDN, no tracking blocks)
+import icoJava       from 'devicon/icons/java/java-original.svg?url';
+import icoPython     from 'devicon/icons/python/python-original.svg?url';
+import icoC          from 'devicon/icons/c/c-original.svg?url';
+import icoPostgres   from 'devicon/icons/postgresql/postgresql-original.svg?url';
+import icoHtml       from 'devicon/icons/html5/html5-original.svg?url';
+import icoCss        from 'devicon/icons/css3/css3-original.svg?url';
+import icoJs         from 'devicon/icons/javascript/javascript-original.svg?url';
+import icoReact      from 'devicon/icons/react/react-original.svg?url';
+import icoTailwind   from 'devicon/icons/tailwindcss/tailwindcss-original.svg?url';
+import icoNode       from 'devicon/icons/nodejs/nodejs-original.svg?url';
+import icoExpress    from 'devicon/icons/express/express-original.svg?url';
+import icoFlask      from 'devicon/icons/flask/flask-original.svg?url';
+import icoMongo      from 'devicon/icons/mongodb/mongodb-original.svg?url';
+import icoFirebase   from 'devicon/icons/firebase/firebase-plain.svg?url';
+import icoNumpy      from 'devicon/icons/numpy/numpy-original.svg?url';
+import icoPandas     from 'devicon/icons/pandas/pandas-original.svg?url';
+import icoSklearn    from 'devicon/icons/scikitlearn/scikitlearn-original.svg?url';
+import icoTf         from 'devicon/icons/tensorflow/tensorflow-original.svg?url';
+import icoPytorch    from 'devicon/icons/pytorch/pytorch-original.svg?url';
+import icoKeras      from 'devicon/icons/keras/keras-original.svg?url';
+import icoOpencv     from 'devicon/icons/opencv/opencv-original.svg?url';
+import icoPostman    from 'devicon/icons/postman/postman-original.svg?url';
+import icoDocker     from 'devicon/icons/docker/docker-original.svg?url';
+import icoVscode     from 'devicon/icons/vscode/vscode-original.svg?url';
+import icoGithub     from 'devicon/icons/github/github-original.svg?url';
+import icoJupyter    from 'devicon/icons/jupyter/jupyter-original.svg?url';
+import icoFigma      from 'devicon/icons/figma/figma-original.svg?url';
+
 const Skills = () => {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -25,39 +54,39 @@ const Skills = () => {
   // Flat list of all skills with categories
   const allSkills = [
     // Programming Languages
-    { name: 'Java', category: 'languages', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-    { name: 'Python', category: 'languages', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-    { name: 'C', category: 'languages', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg' },
-    { name: 'SQL', category: 'languages', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+    { name: 'Java',        category: 'languages', iconSrc: icoJava },
+    { name: 'Python',      category: 'languages', iconSrc: icoPython },
+    { name: 'C',           category: 'languages', iconSrc: icoC },
+    { name: 'SQL',         category: 'languages', iconSrc: icoPostgres },
     // Frontend Development
-    { name: 'HTML', category: 'frontend', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-    { name: 'CSS', category: 'frontend', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-    { name: 'JavaScript', category: 'frontend', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-    { name: 'React.js', category: 'frontend', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-    { name: 'Tailwind CSS', category: 'frontend', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+    { name: 'HTML',        category: 'frontend',  iconSrc: icoHtml },
+    { name: 'CSS',         category: 'frontend',  iconSrc: icoCss },
+    { name: 'JavaScript',  category: 'frontend',  iconSrc: icoJs },
+    { name: 'React.js',    category: 'frontend',  iconSrc: icoReact },
+    { name: 'Tailwind CSS',category: 'frontend',  iconSrc: icoTailwind },
     // Backend Development
-    { name: 'Node.js', category: 'backend', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-    { name: 'Express.js', category: 'backend', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-    { name: 'Flask', category: 'backend', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg' },
+    { name: 'Node.js',     category: 'backend',   iconSrc: icoNode },
+    { name: 'Express.js',  category: 'backend',   iconSrc: icoExpress },
+    { name: 'Flask',       category: 'backend',   iconSrc: icoFlask },
     // Database & APIs
-    { name: 'MongoDB', category: 'database', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-    { name: 'PostgreSQL', category: 'database', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-    { name: 'Firebase', category: 'database', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
-    // Machine Learning and Deep Learning Frameworks
-    { name: 'NumPy', category: 'ml', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg' },
-    { name: 'Pandas', category: 'ml', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg' },
-    { name: 'Scikit-learn', category: 'ml', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg' },
-    { name: 'TensorFlow', category: 'ml', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
-    { name: 'PyTorch', category: 'ml', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
-    { name: 'Keras', category: 'ml', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg' },
-    { name: 'OpenCV', category: 'ml', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg' },
+    { name: 'MongoDB',     category: 'database',  iconSrc: icoMongo },
+    { name: 'PostgreSQL',  category: 'database',  iconSrc: icoPostgres },
+    { name: 'Firebase',    category: 'database',  iconSrc: icoFirebase },
+    // Machine Learning & Deep Learning
+    { name: 'NumPy',       category: 'ml',        iconSrc: icoNumpy },
+    { name: 'Pandas',      category: 'ml',        iconSrc: icoPandas },
+    { name: 'Scikit-learn',category: 'ml',        iconSrc: icoSklearn },
+    { name: 'TensorFlow',  category: 'ml',        iconSrc: icoTf },
+    { name: 'PyTorch',     category: 'ml',        iconSrc: icoPytorch },
+    { name: 'Keras',       category: 'ml',        iconSrc: icoKeras },
+    { name: 'OpenCV',      category: 'ml',        iconSrc: icoOpencv },
     // Tools
-    { name: 'Postman', category: 'tools', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-    { name: 'Docker', category: 'tools', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-    { name: 'VS Code', category: 'tools', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-    { name: 'Git & GitHub', category: 'tools', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-    { name: 'Jupyter', category: 'tools', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg' },
-    { name: 'Figma', category: 'tools', iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+    { name: 'Postman',     category: 'tools',     iconSrc: icoPostman },
+    { name: 'Docker',      category: 'tools',     iconSrc: icoDocker },
+    { name: 'VS Code',     category: 'tools',     iconSrc: icoVscode },
+    { name: 'Git & GitHub',category: 'tools',     iconSrc: icoGithub },
+    { name: 'Jupyter',     category: 'tools',     iconSrc: icoJupyter },
+    { name: 'Figma',       category: 'tools',     iconSrc: icoFigma },
   ];
 
   const marqueeSkills = useMemo(() => {
@@ -109,7 +138,7 @@ const Skills = () => {
                     src={skill.iconSrc}
                     alt={skill.name}
                     className="w-7 h-7 md:w-8 md:h-8"
-                    loading="lazy"
+                    loading="eager"
                   />
                   <span className="text-[11px] md:text-xs font-medium text-silver-secondary leading-none whitespace-nowrap">
                     {skill.name}
@@ -134,7 +163,7 @@ const Skills = () => {
                     src={skill.iconSrc}
                     alt={skill.name}
                     className="w-7 h-7 md:w-8 md:h-8"
-                    loading="lazy"
+                    loading="eager"
                   />
                   <span className="text-[11px] md:text-xs font-medium text-silver-secondary leading-none whitespace-nowrap">
                     {skill.name}
@@ -159,7 +188,7 @@ const Skills = () => {
                     src={skill.iconSrc}
                     alt={skill.name}
                     className="w-7 h-7 md:w-8 md:h-8"
-                    loading="lazy"
+                    loading="eager"
                   />
                   <span className="text-[11px] md:text-xs font-medium text-silver-secondary leading-none whitespace-nowrap">
                     {skill.name}
