@@ -62,7 +62,7 @@ const Achievements = () => {
       date: '2026',
       fullDate: '2026-01-25',
       category: '1st Prize',
-      link: linkedInProfile,
+      link: 'https://www.linkedin.com/posts/sanjayn29_electrothon2k26-firstprize-chargesense-activity-7431196738872492032-W1fH',
     },
     {
       title: 'Hacksagon (Hackathon)',
@@ -72,7 +72,7 @@ const Achievements = () => {
       date: '2026',
       fullDate: '2026-02-20',
       category: '1st Prize',
-      link: linkedInProfile,
+      link: 'https://www.linkedin.com/posts/sanjayn29_hackathon-freelancersclub-ai-activity-7431371098090536960-lrMw',
     },
 
     {
