@@ -231,6 +231,10 @@
     box-shadow: 0 0 20px hsl(var(--glow-blue) / 0.3), 0 0 40px hsl(var(--glow-blue) / 0.1);
   }
 
+  .shadow-glow-cyan {
+    box-shadow: 0 0 12px hsl(var(--glow-cyan) / 0.5), 0 0 24px hsl(var(--glow-cyan) / 0.2);
+  }
+
   .hover-glow-cyan {
     @apply transition-all duration-500;
   }
