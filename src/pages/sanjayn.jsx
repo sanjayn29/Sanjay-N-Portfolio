@@ -83,16 +83,16 @@ const SanjayN = () => {
             <Achievements />
           </Suspense>
 
-          <Suspense fallback={<SectionSkeleton height="h-64" />}>
-            <Certifications />
-          </Suspense>
-
           <Suspense fallback={<SectionSkeleton height="h-96" />}>
             <Projects />
           </Suspense>
 
           <Suspense fallback={<SectionSkeleton height="h-64" />}>
             <Skills />
+          </Suspense>
+
+          <Suspense fallback={<SectionSkeleton height="h-64" />}>
+            <Certifications />
           </Suspense>
 
           <Suspense fallback={<SectionSkeleton height="h-96" />}>

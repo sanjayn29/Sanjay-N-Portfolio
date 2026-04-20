@@ -4,28 +4,28 @@ import { FiCalendar, FiExternalLink } from 'react-icons/fi';
 import { SiGithub } from 'react-icons/si';
 
 // Image imports
-import KongutbiImg       from '../../assert/image/TBI-WS.png';
-import ArameyecareImg    from '../../assert/image/ARAM-WS.png';
-import CashmanImg        from '../../assert/image/CashMan.webp';
-import SmartspendImg     from '../../assert/image/SPEND-WS.png';
-import NeovateImg        from '../../assert/image/NEOVATE-WS.png';
-import FabspectorImg     from '../../assert/image/Fabspector.jpg';
-import ZeonImg           from '../../assert/image/Zeon.jpg';
-import SocialMediaImg    from '../../assert/image/Social Media Engagement.png';
-import PocketCareImg     from '../../assert/image/PocketCare.jpg';
-import MasImg            from '../../assert/image/MAS-WS.png';
-import MahimitraImg      from '../../assert/image/MAHAMITRA-WS.png';
+import KongutbiImg from '../../assert/image/TBI-WS.png';
+import ArameyecareImg from '../../assert/image/ARAM-WS.png';
+import CashmanImg from '../../assert/image/CashMan.webp';
+import SmartspendImg from '../../assert/image/SPEND-WS.png';
+import NeovateImg from '../../assert/image/NEOVATE-WS.png';
+import FabspectorImg from '../../assert/image/Fabspector.jpg';
+import ZeonImg from '../../assert/image/Zeon.jpg';
+import SocialMediaImg from '../../assert/image/Social Media Engagement.png';
+import PocketCareImg from '../../assert/image/PocketCare.jpg';
+import MasImg from '../../assert/image/MAS-WS.png';
+import MahimitraImg from '../../assert/image/MAHAMITRA-WS.png';
 import ImageAnimationImg from '../../assert/image/Image-Animation.png';
 
 // Category colour mapping — used for badge accent colours
 const CATEGORY_COLORS = {
-  'Web Development':      { text: 'text-indigo-400',  bg: 'bg-indigo-400/10',  border: 'border-indigo-400/30'  },
-  'E-commerce':           { text: 'text-purple-400',  bg: 'bg-purple-400/10',  border: 'border-purple-400/30'  },
-  'FinTech / AI':         { text: 'text-emerald-400', bg: 'bg-emerald-400/10', border: 'border-emerald-400/30' },
-  'AI / Computer Vision': { text: 'text-orange-400',  bg: 'bg-orange-400/10',  border: 'border-orange-400/30'  },
-  'AI / Data':            { text: 'text-yellow-400',  bg: 'bg-yellow-400/10',  border: 'border-yellow-400/30'  },
-  'Data Analytics':       { text: 'text-pink-400',    bg: 'bg-pink-400/10',    border: 'border-pink-400/30'    },
-  'Mobile App / AI':      { text: 'text-glow-blue',   bg: 'bg-glow-blue/10',   border: 'border-glow-blue/30'   },
+  'Web Development': { text: 'text-indigo-400', bg: 'bg-indigo-400/10', border: 'border-indigo-400/30' },
+  'E-commerce': { text: 'text-purple-400', bg: 'bg-purple-400/10', border: 'border-purple-400/30' },
+  'FinTech / AI': { text: 'text-emerald-400', bg: 'bg-emerald-400/10', border: 'border-emerald-400/30' },
+  'AI / Computer Vision': { text: 'text-orange-400', bg: 'bg-orange-400/10', border: 'border-orange-400/30' },
+  'AI / Data': { text: 'text-yellow-400', bg: 'bg-yellow-400/10', border: 'border-yellow-400/30' },
+  'Data Analytics': { text: 'text-pink-400', bg: 'bg-pink-400/10', border: 'border-pink-400/30' },
+  'Mobile App / AI': { text: 'text-glow-blue', bg: 'bg-glow-blue/10', border: 'border-glow-blue/30' },
 };
 
 const FILTERS = ['All', 'Web Development', 'E-commerce', 'FinTech / AI', 'AI / Computer Vision', 'AI / Data', 'Data Analytics', 'Mobile App / AI'];
@@ -62,7 +62,7 @@ const projects = [
   {
     title: 'Cashman – AI Powered Finance Assistant',
     description: 'Mobile application for intelligent expense tracking with OCR-based invoice parsing and ML-driven financial risk scoring.',
-    tech: ['React Native', 'Flask', 'LangChain', 'Firebase', 'OCR'],
+    tech: ['React Native', 'Flask', 'Expo Go', 'Firebase', 'OCR'],
     category: 'FinTech / AI',
     date: 'Apr 2025 - May 2025',
     siteLink: 'https://www.outliersunited.com/',
@@ -72,7 +72,7 @@ const projects = [
   {
     title: 'SmartSpend – AI-Driven Finance Manager',
     description: 'Web-based finance application with expense tracking, budgeting tools and an integrated AI chatbot for financial assistance.',
-    tech: ['React', 'TailwindCSS', 'Firebase', 'AI Integration', 'Vercel'],
+    tech: ['React', 'TailwindCSS', 'Firebase', 'AI Integration'],
     category: 'FinTech / AI',
     date: 'Aug 2025 - Sep 2025',
     siteLink: 'https://smartspend-iota.vercel.app/',
@@ -92,7 +92,7 @@ const projects = [
   {
     title: 'FabSpector – AI Fabric Defect Inspector',
     description: 'Web application designed for fabric defect detection and analysis. Provides a comprehensive dashboard to visualize and manage quality control in fabric manufacturing.',
-    tech: ['Computer Vision', 'HTML', 'CSS', 'PostgreSQL'],
+    tech: ['Computer Vision', 'React', 'TailwindCSS', 'PostgreSQL'],
     category: 'AI / Computer Vision',
     date: 'Nov 2025 - Dec 2025',
     siteLink: null,
@@ -102,7 +102,7 @@ const projects = [
   {
     title: 'EV Log Analyser – AI E-Log Platform',
     description: 'Zeon Logs — a modern web app to analyze and manage OCPP (Open Charge Point Protocol) charger log files with AI-driven anomaly detection and insight generation.',
-    tech: ['Python', 'AI/LLM', 'React', 'Flask'],
+    tech: ['Python', 'AI Integration', 'React', 'TailwindCSS', 'Firebase', 'Flask'],
     category: 'AI / Data',
     date: 'Jan 2026 - Feb 2026',
     siteLink: null,
@@ -122,7 +122,7 @@ const projects = [
   {
     title: 'PocketCare – Productivity Mobile App',
     description: 'PocketCare is a personal life-management app that helps users take care of their daily activities such as finance, health, learning, and productivity in one place.',
-    tech: ['React Native', 'Expo', 'Firebase', 'AI Integration'],
+    tech: ['React Native', 'Expo', 'Firebase', 'AI Integration', 'Clerk Authentication'],
     category: 'Mobile App / AI',
     date: 'Mar 2026 - Present',
     siteLink: 'https://drive.google.com/drive/folders/1_0beXOkr6RM4Df_t2iXplcdsz6FKRx1j?usp=drive_link',
@@ -132,7 +132,7 @@ const projects = [
   {
     title: 'Muthu Ambulance Service – Booking',
     description: 'Official website for CMuthu Ambulance Service, providing quick and reliable access to emergency ambulance services with real-time availability and admin dashboard.',
-    tech: ['React', 'TailwindCSS', 'Firebase'],
+    tech: ['React', 'TailwindCSS'],
     category: 'Web Development',
     date: 'Jan 2026 - Apr 2026',
     siteLink: 'https://muthuambulance.works/',
@@ -142,7 +142,7 @@ const projects = [
   {
     title: 'Mahamitra Boutique – E-Commerce',
     description: 'Mahamitra is a modern eCommerce web application designed to provide a smooth and reliable online shopping experience with product management, cart, and payment integration.',
-    tech: ['React', 'TailwindCSS', 'Supabase', 'Email.JS', 'Payment APIs'],
+    tech: ['React', 'TailwindCSS', 'Supabase', 'Email.JS', 'Payment APIs', 'AI Integration'],
     category: 'E-commerce',
     date: 'Jan 2026 - Apr 2026',
     siteLink: 'https://www.mahamitra.app/',
@@ -152,7 +152,7 @@ const projects = [
   {
     title: 'Image Animation Jewellery',
     description: 'Image Animation Jewellery is a creative web project that showcases jewellery using frame-based image animations and interactive transitions.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    tech: ['Next.js', 'TailwindCSS', 'Framer Motion'],
     category: 'Web Development',
     date: 'Mar 2026',
     siteLink: null,
@@ -326,13 +326,13 @@ const Projects = () => {
 
   const sortedProjects = useMemo(() =>
     [...projects].sort((a, b) => parseEndTimestamp(b.date) - parseEndTimestamp(a.date)),
-  []);
+    []);
 
   const filteredProjects = useMemo(() =>
     activeFilter === 'All'
       ? sortedProjects
       : sortedProjects.filter(p => p.category === activeFilter),
-  [activeFilter, sortedProjects]);
+    [activeFilter, sortedProjects]);
 
   // Category counts for filter pills
   const categoryCounts = useMemo(() => {
@@ -380,9 +380,8 @@ const Projects = () => {
               {rotatingHighlights.map((highlight, index) => (
                 <p
                   key={highlight}
-                  className={`absolute inset-0 text-sm text-silver-secondary transition-all duration-500 ${
-                    index === activeHighlightIndex ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                  }`}
+                  className={`absolute inset-0 text-sm text-silver-secondary transition-all duration-500 ${index === activeHighlightIndex ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                    }`}
                 >
                   {highlight}
                 </p>

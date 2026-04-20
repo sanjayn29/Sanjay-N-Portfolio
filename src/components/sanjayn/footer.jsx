@@ -36,10 +36,10 @@ const Footer = () => {
   const navLinks = [
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
     { id: 'achievements', label: 'Achievements' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact' },
   ];
