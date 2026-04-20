@@ -9,7 +9,6 @@ const Navbar = () => {
   const mobileToggleButtonRef = useRef(null);
   const navLinks = [
     { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
     { id: 'achievements', label: 'Achievements' },
     { id: 'projects', label: 'Projects' },

@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import SanjayImage from '../../assert/image/SanjayN.png';
+import { useEffect, useState } from 'react';
+import AboutImage from '../../assert/image/mine.jpg';
 
 const roles = [
   'A Freelancer',
@@ -7,24 +7,15 @@ const roles = [
   'Software Developer',
 ];
 
-const skills = [
-  { name: 'React js', color: 'from-blue-500 to-cyan-500' },
-  { name: 'Git & Github', color: 'from-gray-500 to-blue-500' },
-  { name: 'PostgreSql', color: 'from-indigo-500 to-blue-500' },
-  { name: 'Python', color: 'from-yellow-500 to-orange-500' },
-  { name: 'Java', color: 'from-green-500 to-emerald-500' },
-  { name: 'Power BI', color: 'from-purple-500 to-pink-500' },
-  { name: 'Tailwind CSS', color: 'from-teal-500 to-green-500' },
-  { name: 'JavaScript', color: 'from-red-500 to-orange-500' },
-  { name: 'ML & DL', color: 'from-pink-500 to-rose-500' },
-  { name: 'Firebase', color: 'from-purple-500 to-indigo-500' },
+const quickHighlights = [
+  'Problem-Solving Builder',
+  'Practical AI + Product Thinking',
+  'Open to Real-World Collaborations',
 ];
 
 const Hero = () => {
-  const containerRef = useRef(null);
-  const [containerSize, setContainerSize] = useState(520);
-  const [positions, setPositions] = useState({});
   const [activeRoleIndex, setActiveRoleIndex] = useState(0);
+  const [activeHighlightIndex, setActiveHighlightIndex] = useState(0);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -33,96 +24,13 @@ const Hero = () => {
     return () => window.clearInterval(timer);
   }, []);
 
-  // Update container size and recalculate positions on resize
   useEffect(() => {
-    const updateSize = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const size = Math.min(rect.width, rect.height);
-        setContainerSize(size);
+    const timer = window.setInterval(() => {
+      setActiveHighlightIndex(prev => (prev + 1) % quickHighlights.length);
+    }, 2300);
 
-        const center = size / 2;
-        const itemsPerLayer = 5;
-        const newPositions = {};
-
-        skills.forEach((skill, index) => {
-          const layer = index < itemsPerLayer ? 1 : 2;
-          const layerIndex = layer === 1 ? index : index - itemsPerLayer;
-          const segment = 360 / itemsPerLayer;
-          const stagger = layer === 2 ? segment / 2 : 0;
-          const angleDeg = layerIndex * segment + stagger;
-          const angle = (angleDeg * Math.PI) / 180;
-
-          const baseRadius1 = 150;
-          const baseRadius2 = 240;
-          const scale = size / 520;
-          const radius = layer === 1 ? baseRadius1 * scale : baseRadius2 * scale;
-
-          const minRadius1 = 80;
-          const minRadius2 = 140;
-          const adjustedRadius = Math.max(layer === 1 ? minRadius1 : minRadius2, radius);
-
-          const x = center + adjustedRadius * Math.cos(angle);
-          const y = center + adjustedRadius * Math.sin(angle);
-
-          newPositions[skill.name] = {
-            left: `${x}px`,
-            top: `${y}px`,
-          };
-        });
-
-        setPositions(newPositions);
-      }
-    };
-
-    updateSize();
-    window.addEventListener('resize', updateSize);
-    return () => window.removeEventListener('resize', updateSize);
+    return () => window.clearInterval(timer);
   }, []);
-
-  // Calculate line positions for SVG
-  const [svgViewBox, setSvgViewBox] = useState('0 0 520 520');
-  const [lines, setLines] = useState([]);
-
-  useEffect(() => {
-    const center = containerSize / 2;
-    const itemsPerLayer = 5;
-    const baseRadius1 = 150;
-    const baseRadius2 = 240;
-    const scale = containerSize / 520;
-    const minRadius1 = 80;
-    const minRadius2 = 140;
-
-    setSvgViewBox(`0 0 ${containerSize} ${containerSize}`);
-
-    const newLines = [];
-    skills.forEach((_, index) => {
-      const layer = index < itemsPerLayer ? 1 : 2;
-      const layerIndex = layer === 1 ? index : index - itemsPerLayer;
-      const segment = 360 / itemsPerLayer;
-      const stagger = layer === 2 ? segment / 2 : 0;
-      const angle = ((layerIndex * segment + stagger) * Math.PI) / 180;
-      const radius = Math.max(layer === 1 ? minRadius1 : minRadius2, (layer === 1 ? baseRadius1 : baseRadius2) * scale);
-      const x = center + radius * Math.cos(angle);
-      const y = center + radius * Math.sin(angle);
-
-      newLines.push(
-        <line
-          key={`line-${index}`}
-          x1={center}
-          y1={center}
-          x2={x}
-          y2={y}
-          stroke="url(#lineGradient)"
-          strokeWidth={1.5}
-          strokeDasharray="3 3"
-          className="opacity-70"
-        />
-      );
-    });
-
-    setLines(newLines);
-  }, [containerSize]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -171,12 +79,32 @@ const Hero = () => {
           </div>
 
           {/* Description */}
-          <p className="animate-fade-up animate-delay-300 text-silver-muted text-base md:text-lg max-w-xl mx-auto mb-6 leading-relaxed">
-            Crafting intelligent solutions at the intersection of artificial intelligence and elegant software engineering
+          <p className="animate-fade-up animate-delay-300 text-silver-muted text-base md:text-lg max-w-xl mx-auto mb-3 leading-relaxed">
+            I am passionate about solving real-world problems through practical software and intelligent solutions, and always learning and applying new ideas to make a meaningful impact.
+          </p>
+          <p className="animate-fade-up animate-delay-300 text-silver-secondary text-sm md:text-base max-w-xl mx-auto mb-6 leading-relaxed">
+            Currently pursuing B.Tech in{' '}
+            <span className="text-glow-cyan font-semibold">Artificial Intelligence and Machine Learning</span>.
+            {' '}at Kongu Engineering College.
           </p>
 
+          <div className="animate-fade-up animate-delay-400 relative h-6 overflow-hidden mb-6">
+            {quickHighlights.map((line, index) => (
+              <p
+                key={line}
+                className={`absolute inset-0 text-sm md:text-base font-medium transition-all duration-500 ${
+                  index === activeHighlightIndex
+                    ? 'translate-y-0 opacity-100 text-glow-cyan'
+                    : 'translate-y-4 opacity-0 text-silver-muted'
+                }`}
+              >
+                {line}
+              </p>
+            ))}
+          </div>
+
           {/* CTA Buttons */}
-          <div className="animate-fade-up animate-delay-400 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-stretch sm:items-center mt-2">
+          <div className="animate-fade-up animate-delay-500 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-stretch sm:items-center mt-2">
             <button
               onClick={() => scrollToSection('projects')}
               className="group relative px-8 py-3.5 bg-space-card border border-glow-cyan/30 rounded-xl text-silver-primary font-medium transition-all duration-500 hover-glow-cyan hover:border-glow-cyan/60 flex items-center justify-center gap-2 w-full sm:w-auto"
@@ -193,57 +121,31 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT: Visual hub — hidden on xs, visible from sm */}
-        <div className="hidden sm:flex w-full lg:w-1/2 items-center justify-center">
-          <div ref={containerRef} className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:w-[440px] md:h-[440px] lg:w-[520px] lg:h-[520px]">
-            {/* Center main circle */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 max-w-full max-h-full">
-                <div className="relative w-full h-full bg-gradient-to-br from-glow-cyan to-glow-blue rounded-full flex items-center justify-center shadow-2xl border-2 border-glow-cyan/50 transform transition-transform duration-500 group-hover:scale-105">
-                  <div className="w-52 h-52 sm:w-56 sm:h-56 bg-blue-900/95 rounded-2xl flex items-center justify-center shadow-inner max-w-full max-h-full">
-                    <img
-                      src={SanjayImage}
-                      alt="Sanjay N - Full Stack Developer and AI Engineer"
-                      className="w-48 h-48 sm:w-52 sm:h-52 object-cover rounded-lg animate-float max-w-full max-h-full"
-                    />
-                  </div>
+        {/* RIGHT: Dynamic portrait */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center">
+          <div className="relative w-[280px] h-[360px] sm:w-[340px] sm:h-[430px] md:w-[390px] md:h-[500px]">
+            <div className="absolute -inset-2 rounded-[2rem] bg-gradient-to-tr from-glow-cyan/45 via-transparent to-glow-blue/35 blur-lg animate-pulse" />
+
+            <div className="relative h-full w-full rounded-[2rem] border border-glow-cyan/30 bg-space-card/65 backdrop-blur-xl p-3 md:p-4">
+              <div className="relative h-full w-full overflow-hidden rounded-[1.5rem] border border-border/60 bg-space-deep">
+                <img
+                  src={AboutImage}
+                  alt="Sanjay N portrait"
+                  className="h-full w-full object-cover animate-float"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-space-deep/55 via-transparent to-transparent" />
+
+                <div className="absolute left-4 top-4 rounded-full border border-glow-cyan/45 bg-space-card/80 px-3 py-1.5 text-xs font-semibold text-glow-cyan">
+                  Freelancer
+                </div>
+
+                <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/60 bg-space-card/80 p-3 backdrop-blur-sm">
+                  <p className="text-xs uppercase tracking-wider text-silver-muted">Now Building</p>
+                  <p className="mt-1 text-sm font-semibold text-silver-primary">Software Solutions, ML Models, and AI Integrations</p>
                 </div>
               </div>
             </div>
-
-            {/* Surrounding skill circles (dynamic positions) */}
-            {skills.map((skill) => {
-              const pos = positions[skill.name];
-              if (!pos) return null;
-
-              return (
-                <div
-                  key={skill.name}
-                  className="absolute -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: pos.left, top: pos.top }}
-                >
-                  <div className="relative flex items-center justify-center" title={skill.name} tabIndex={0} role="button" aria-pressed="false"
-                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') e.currentTarget.click(); }}
-                  >
-                    {/* circle — responsive size */}
-                    <div className={`relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br ${skill.color} rounded-full flex flex-col items-center justify-center p-2 shadow-md border border-white/20 transform transition-all duration-400 hover:scale-110 focus:scale-110 max-w-full max-h-full`}>
-                      <span className="text-[10px] sm:text-xs font-semibold text-white text-center leading-tight mt-1 max-w-[64px] truncate">{skill.name}</span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-
-            {/* Connecting lines — dynamic SVG */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox={svgViewBox} preserveAspectRatio="xMidYMid meet" aria-hidden>
-              <defs>
-                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#22D3EE" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#60A5FA" stopOpacity="0.35" />
-                </linearGradient>
-              </defs>
-              {lines}
-            </svg>
           </div>
         </div>
       </div>

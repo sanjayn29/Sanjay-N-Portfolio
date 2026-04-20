@@ -6,7 +6,6 @@ import SpaceBackground from '../components/sanjayn/SpaceBackground';
 import StarCursor from '../components/sanjayn/StarCursor';
 
 // Lazy load heavy sections — each in its own Suspense boundary
-const About          = lazy(() => import('../components/sanjayn/about'));
 const Experience     = lazy(() => import('../components/sanjayn/experience'));
 const Achievements   = lazy(() => import('../components/sanjayn/achievements'));
 const Certifications = lazy(() => import('../components/sanjayn/certifications'));
@@ -71,10 +70,6 @@ const SanjayN = () => {
             still downloading, ALL of them showed the fallback (blank area between
             navbar and footer).
           */}
-          <Suspense fallback={<SectionSkeleton height="h-96" />}>
-            <About />
-          </Suspense>
-
           <Suspense fallback={<SectionSkeleton height="h-96" />}>
             <Experience />
           </Suspense>
