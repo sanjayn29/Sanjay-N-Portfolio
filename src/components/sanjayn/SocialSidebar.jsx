@@ -57,7 +57,7 @@ const SocialSidebar = () => {
   };
 
   return (
-    <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50">
+    <div className="hidden lg:flex fixed right-4 top-1/2 -translate-y-1/2 z-50">
       <div className="flex flex-col items-center gap-4 p-3 rounded-full bg-black/20 backdrop-blur-sm border border-glow-cyan/30 shadow-lg">
         {socialLinks.map((social, idx) => (
           <button

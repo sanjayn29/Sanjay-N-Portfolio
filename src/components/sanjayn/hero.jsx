@@ -132,7 +132,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center galaxy-bg stars-bg overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center galaxy-bg stars-bg overflow-hidden pt-20"
     >
       {/* Ambient Glow Effects */}
       <div className="absolute inset-0 pointer-events-none">
@@ -140,7 +140,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-glow-blue/5 rounded-full blur-3xl" style={{ animationDelay: '1.5s' }} />
       </div>
 
-      <div className="relative z-10 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
+      <div className="relative z-10 px-4 sm:px-6 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 py-8">
         {/* LEFT: Text */}
         <div className="w-full lg:w-1/2 text-center lg:text-left">
           {/* Greeting */}
@@ -176,26 +176,26 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="animate-fade-up animate-delay-400 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center sm:items-center mt-2">
+          <div className="animate-fade-up animate-delay-400 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-stretch sm:items-center mt-2">
             <button
               onClick={() => scrollToSection('projects')}
-              className="group relative px-8 py-4 bg-space-card border border-glow-cyan/30 rounded-xl text-silver-primary font-medium transition-all duration-500 hover-glow-cyan hover:border-glow-cyan/60 flex items-center gap-2"
+              className="group relative px-8 py-3.5 bg-space-card border border-glow-cyan/30 rounded-xl text-silver-primary font-medium transition-all duration-500 hover-glow-cyan hover:border-glow-cyan/60 flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <span className="relative z-10">View My Work</span>
             </button>
 
             <button
               onClick={() => scrollToSection('contact')}
-              className="group relative px-8 py-4 bg-space-card border border-glow-cyan/30 rounded-xl text-silver-primary font-medium transition-all duration-500 hover-glow-cyan hover:border-glow-cyan/60 flex items-center gap-2"
+              className="group relative px-8 py-3.5 bg-space-card border border-glow-cyan/30 rounded-xl text-silver-primary font-medium transition-all duration-500 hover-glow-cyan hover:border-glow-cyan/60 flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               Get In Touch
             </button>
           </div>
         </div>
 
-        {/* RIGHT: Visual hub */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center">
-          <div ref={containerRef} className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] lg:w-[520px] lg:h-[520px]">
+        {/* RIGHT: Visual hub — hidden on xs, visible from sm */}
+        <div className="hidden sm:flex w-full lg:w-1/2 items-center justify-center">
+          <div ref={containerRef} className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:w-[440px] md:h-[440px] lg:w-[520px] lg:h-[520px]">
             {/* Center main circle */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 max-w-full max-h-full">
