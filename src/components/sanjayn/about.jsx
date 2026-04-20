@@ -173,7 +173,7 @@ const About = () => {
                   <div className="rounded-lg bg-glow-cyan/20 p-2.5 group-hover:bg-glow-cyan/25 transition-colors">
                     <FaPhone className="text-glow-cyan text-base" />
                   </div>
-                  <span className="text-base font-medium text-silver-secondary group-hover:text-silver-primary transition-colors">+91 90805 81688</span>
+                  <span className="text-base font-medium text-silver-secondary group-hover:text-silver-primary transition-colors">9080581688</span>
                 </a>
 
                 <a

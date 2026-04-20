@@ -16,7 +16,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    phone: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -71,7 +71,7 @@ const Contact = () => {
         {
           name: formData.name,
           email: formData.email,
-          mobile: formData.subject,
+          mobile: formData.phone,
           message: formData.message,
           from_email: 'sanjayn29.aiml@gmail.com',
           time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }),
@@ -84,7 +84,7 @@ const Contact = () => {
         {
           name: formData.name,
           email: formData.email,
-          mobile: formData.subject,
+          mobile: formData.phone,
           message: formData.message,
           from_email: 'sanjayn29.aiml@gmail.com',
         },
@@ -92,7 +92,7 @@ const Contact = () => {
       );
 
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '' });
       setTimeout(() => setSubmitStatus(null), 5000);
     } catch (error) {
       console.error('EmailJS Error:', error);
@@ -105,7 +105,7 @@ const Contact = () => {
   const contactInfo = [
     {
       label: 'Mobile',
-      value: '+91 9080581688',
+      value: '9080581688',
       hint: 'Quickest for urgent queries',
       action: 'tel:+919080581688',
       icon: <FiPhone className="h-4 w-4" />,
@@ -284,15 +284,15 @@ const Contact = () => {
 
                   {/* Mobile */}
                   <div>
-                    <label htmlFor="subject" className="mb-1.5 block text-xs text-silver-muted">Mobile Number</label>
+                    <label htmlFor="phone" className="mb-1.5 block text-xs text-silver-muted">Mobile Number</label>
                     <input
                       type="tel"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
                       onChange={handleChange}
                       required
-                      placeholder="+91 1234567890"
+                      placeholder="9080581688"
                       className="w-full rounded-xl border border-white/12 bg-space-deep px-4 py-3 text-sm text-silver-primary placeholder-silver-muted/40 transition-all duration-200 focus:border-glow-cyan/50 focus:outline-none focus:ring-1 focus:ring-glow-cyan/25"
                     />
                   </div>

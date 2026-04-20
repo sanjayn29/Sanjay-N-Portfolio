@@ -23,7 +23,7 @@ const Footer = () => {
     { name: 'LinkedIn',  href: 'https://www.linkedin.com/in/sanjayn29',          icon: SiLinkedin,  color: 'hover:text-[#0A66C2] hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/10' },
     { name: 'GitHub',    href: 'https://github.com/sanjayn29',                   icon: SiGithub,    color: 'hover:text-white hover:border-white/40 hover:bg-white/10' },
     { name: 'LeetCode',  href: 'https://leetcode.com/sanjayn29/',                icon: SiLeetcode,  color: 'hover:text-[#FFA116] hover:border-[#FFA116]/60 hover:bg-[#FFA116]/10' },
-    { name: 'Email',     href: 'mailto:sanjayn2904@gmail.com',                   icon: FiMail,      color: 'hover:text-glow-cyan hover:border-glow-cyan/60 hover:bg-glow-cyan/10' },
+    { name: 'Email',     href: 'mailto:sanjayn29.aiml@gmail.com',                icon: FiMail,      color: 'hover:text-glow-cyan hover:border-glow-cyan/60 hover:bg-glow-cyan/10' },
   ];
 
   const navLinks = [
@@ -175,12 +175,12 @@ const Footer = () => {
                 Open to freelance projects, collaborations, and full-time roles. Let's build something great together!
               </p>
               <a
-                href="mailto:sanjayn2904@gmail.com"
+                href="mailto:sanjayn29.aiml@gmail.com"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-glow-cyan/15 border border-glow-cyan/35 text-glow-cyan text-xs font-semibold
                   hover:bg-glow-cyan/25 hover:border-glow-cyan/60 transition-all duration-300"
               >
                 <FiMail className="h-3.5 w-3.5" />
-                sanjayn2904@gmail.com
+                sanjayn29.aiml@gmail.com
               </a>
             </div>
           </div>

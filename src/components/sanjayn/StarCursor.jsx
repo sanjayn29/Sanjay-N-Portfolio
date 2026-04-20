@@ -1,35 +1,51 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const StarCursor = () => {
   const [trails, setTrails] = useState([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const rafIdRef = useRef(0);
+  const latestMouseRef = useRef({ x: 0, y: 0 });
+  const trailIdRef = useRef(0);
 
   useEffect(() => {
-    let trailId = 0;
-
     const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-      
-      // Create a new trail particle
-      const newTrail = {
-        id: trailId++,
-        x: e.clientX,
-        y: e.clientY,
-        size: Math.random() * 6 + 3,
-        opacity: Math.random() * 0.5 + 0.5,
-      };
+      latestMouseRef.current = { x: e.clientX, y: e.clientY };
 
-      setTrails((prev) => [...prev.slice(-15), newTrail]);
+      if (rafIdRef.current) {
+        return;
+      }
+
+      rafIdRef.current = window.requestAnimationFrame(() => {
+        rafIdRef.current = 0;
+        const { x, y } = latestMouseRef.current;
+        setMousePos({ x, y });
+
+        // Create a new trail particle
+        const newTrail = {
+          id: trailIdRef.current++,
+          x,
+          y,
+          size: Math.random() * 6 + 3,
+          opacity: Math.random() * 0.5 + 0.5,
+        };
+
+        setTrails((prev) => [...prev.slice(-15), newTrail]);
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafIdRef.current) {
+        window.cancelAnimationFrame(rafIdRef.current);
+      }
+    };
   }, []);
 
   // Clean up old trails
   useEffect(() => {
     const interval = setInterval(() => {
-      setTrails((prev) => prev.slice(1));
+      setTrails((prev) => (prev.length > 0 ? prev.slice(1) : prev));
     }, 50);
     return () => clearInterval(interval);
   }, []);

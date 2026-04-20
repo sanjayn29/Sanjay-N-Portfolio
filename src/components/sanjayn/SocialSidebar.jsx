@@ -43,7 +43,7 @@ const SocialSidebar = () => {
     },
     {
       name: 'Mail',
-      url: 'mailto:sanjayn2904@gmail.com',
+      url: 'mailto:sanjayn29.aiml@gmail.com',
       icon: <FiMail className="w-6 h-6" />,
       color: 'hover:text-glow-cyan',
       tooltipColor: '#22D3EE',
