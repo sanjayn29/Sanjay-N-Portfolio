@@ -19,7 +19,7 @@ import ImageAnimationImg from '../../assert/image/Image-Animation.png';
 
 // Category colour mapping — used for badge accent colours
 const CATEGORY_COLORS = {
-  'Web Development':      { text: 'text-glow-cyan',   bg: 'bg-glow-cyan/10',   border: 'border-glow-cyan/30'   },
+  'Web Development':      { text: 'text-indigo-400',  bg: 'bg-indigo-400/10',  border: 'border-indigo-400/30'  },
   'E-commerce':           { text: 'text-purple-400',  bg: 'bg-purple-400/10',  border: 'border-purple-400/30'  },
   'FinTech / AI':         { text: 'text-emerald-400', bg: 'bg-emerald-400/10', border: 'border-emerald-400/30' },
   'AI / Computer Vision': { text: 'text-orange-400',  bg: 'bg-orange-400/10',  border: 'border-orange-400/30'  },
@@ -161,13 +161,23 @@ const projects = [
   },
 ];
 
+// Month map for reliable "MMM YYYY" parsing across all browsers
+const MONTH_IDX = {
+  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+  // Alternate spellings used in data
+  July: 6, Sept: 8,
+};
+
 const parseEndTimestamp = (dateStr) => {
-  const now = Date.now();
   const parts = dateStr.split(' - ');
-  const endPart = parts.length > 1 ? parts[1] : parts[0];
-  if (endPart === 'Present') return now;
-  const normalized = endPart.replace('Sept', 'Sep').replace('July', 'Jul');
-  return new Date(`${normalized} 28`).getTime() || now;
+  const endPart = (parts.length > 1 ? parts[1] : parts[0]).trim();
+  // "Present" is always the most recent
+  if (endPart === 'Present') return Number.MAX_SAFE_INTEGER;
+  const [month, year] = endPart.split(' ');
+  const monthIndex = MONTH_IDX[month];
+  if (monthIndex === undefined || !year) return 0;
+  return new Date(parseInt(year, 10), monthIndex, 28).getTime();
 };
 
 // ─── Project Card ──────────────────────────────────────────────────────────
@@ -197,13 +207,7 @@ const ProjectCard = ({ project, index, isVisible }) => {
         <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-glow-cyan to-transparent
           scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-        {/* Category badge – floated over image */}
-        <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold
-          ${colors.bg} ${colors.border} ${colors.text} border backdrop-blur-sm`}>
-          {project.category}
-        </span>
-
-        {/* Primary link icon — appears on hover */}
+        {/* Primary link icon — context-aware: GitHub icon or external link icon */}
         <a
           href={primaryLink}
           target="_blank"
@@ -213,12 +217,19 @@ const ProjectCard = ({ project, index, isVisible }) => {
             transition-all duration-300 hover:bg-glow-cyan/20"
           aria-label={`Open ${project.title}`}
         >
-          <FiExternalLink className="w-4 h-4 text-glow-cyan" />
+          {project.siteLink
+            ? <FiExternalLink className="w-4 h-4 text-glow-cyan" />
+            : <SiGithub className="w-4 h-4 text-glow-cyan" />}
         </a>
       </div>
 
       {/* Card body */}
       <div className="flex flex-col flex-1 p-5 gap-3">
+        {/* Category badge — in body to avoid image overlap */}
+        <span className={`self-start px-2.5 py-1 rounded-full text-[11px] font-semibold ${colors.bg} ${colors.border} ${colors.text} border`}>
+          {project.category}
+        </span>
+
         {/* Title */}
         <h3 className="font-display text-base font-bold text-silver-primary group-hover:text-glow-cyan
           transition-colors duration-300 line-clamp-2 leading-snug">

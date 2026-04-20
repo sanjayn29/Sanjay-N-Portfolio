@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FiCalendar } from 'react-icons/fi';
+import { FiCalendar, FiExternalLink } from 'react-icons/fi';
 import nvidiaImg from '../../assert/image/nvidia.png';
 import aiFoundationImg from '../../assert/image/AI-Foundation.png';
 import aiGenerativeImg from '../../assert/image/AI-Generative.png';
@@ -147,8 +147,9 @@ const Certifications = () => {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-glow-blue/35 bg-glow-blue/10 px-2.5 py-1 font-medium text-silver-primary transition-all duration-300 hover:border-glow-cyan/45 hover:bg-glow-cyan/10 hover:text-glow-cyan"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-glow-blue/35 bg-glow-blue/10 px-2.5 py-1 font-medium text-silver-primary transition-all duration-300 hover:border-glow-cyan/45 hover:bg-glow-cyan/10 hover:text-glow-cyan"
                   >
+                    <FiExternalLink className="h-3.5 w-3.5" />
                     Click to View
                   </a>
                 </div>
