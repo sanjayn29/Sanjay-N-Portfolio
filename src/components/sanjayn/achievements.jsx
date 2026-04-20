@@ -5,10 +5,10 @@ import { SiLinkedin } from 'react-icons/si';
 
 // Image imports (path: src/assert/image/)
 import April2024Img from '../../assert/image/RRC.jpg';
-import Sept2024Img from '../../assert/image/AI-Code.jpg';
+import Sept2024Img from '../../assert/image/AI-Code.avif';
 import Nov2024Img from '../../assert/image/SCD-Code.jpg';
-import Mar2025Img from '../../assert/image/KEC-Hack.jpg';
-import Apr2025Img from '../../assert/image/BYTS-Hack.jpg';
+import Mar2025Img from '../../assert/image/KEC-Hack.avif';
+import Apr2025Img from '../../assert/image/BYTS-Hack.avif';
 import Sept2025IbmImg from '../../assert/image/IBM-Hack.jpg';
 import Sept2025Img from '../../assert/image/SIH-KEC.jpg';
 import Dec2025Img from '../../assert/image/SIH-Final.jpg';

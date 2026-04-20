@@ -9,13 +9,13 @@ import ArameyecareImg from '../../assert/image/ARAM-WS.png';
 import CashmanImg from '../../assert/image/CashMan.webp';
 import SmartspendImg from '../../assert/image/SPEND-WS.png';
 import NeovateImg from '../../assert/image/NEOVATE-WS.png';
-import FabspectorImg from '../../assert/image/Fabspector.jpg';
+import FabspectorImg from '../../assert/image/Fabspector.avif';
 import ZeonImg from '../../assert/image/Zeon.jpg';
 import SocialMediaImg from '../../assert/image/Social Media Engagement.png';
-import PocketCareImg from '../../assert/image/PocketCare.jpg';
+import PocketCareImg from '../../assert/image/PocketCare.avif';
 import MasImg from '../../assert/image/MAS-WS.png';
-import MahimitraImg from '../../assert/image/MAHAMITRA-WS.png';
-import ImageAnimationImg from '../../assert/image/Image-Animation.png';
+import MahimitraImg from '../../assert/image/MAHAMITRA-WS.avif';
+import ImageAnimationImg from '../../assert/image/Image-Animation.avif';
 
 // Category colour mapping — used for badge accent colours
 const CATEGORY_COLORS = {

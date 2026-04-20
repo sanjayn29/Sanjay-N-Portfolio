@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ExternalLink } from 'lucide-react';
 import { FiCalendar } from 'react-icons/fi';
-import lightsLogo from '../../assert/image/LIGTHS.png';
+import lightsLogo from '../../assert/image/LIGTHS.avif';
 import neovateLogo from '../../assert/image/Neovate-LOGO.png';
-import outliersLogo from '../../assert/image/OU.png';
-import tbiLogo from '../../assert/image/TBI.png';
+import outliersLogo from '../../assert/image/OU.avif';
+import tbiLogo from '../../assert/image/TBI.avif';
 import cubeAiLogo from '../../assert/image/CUBEAI.png';
 
 const rotatingHighlights = [

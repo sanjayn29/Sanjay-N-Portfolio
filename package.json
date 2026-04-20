@@ -9,6 +9,9 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "optimize:images:cleanup": "node scripts/optimize-images.mjs --cleanup-originals",
+    "optimize:images:cleanup:dry-run": "node scripts/optimize-images.mjs --cleanup-originals --dry-run",
     "test": "vitest run",
     "test:watch": "vitest",
     "preview": "vite preview",
@@ -49,6 +52,7 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "sharp": "^0.33.5"
   }
 }
