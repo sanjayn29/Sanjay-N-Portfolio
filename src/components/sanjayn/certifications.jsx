@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { FiCalendar } from 'react-icons/fi';
 import nvidiaImg from '../../assert/image/nvidia.png';
 import aiFoundationImg from '../../assert/image/AI-Foundation.png';
 import aiGenerativeImg from '../../assert/image/AI-Generative.png';
@@ -138,7 +139,8 @@ const Certifications = () => {
                   Skills: {cert.skills}
                 </p>
                 <div className="flex items-center justify-center gap-3 mt-3 text-silver-muted text-xs">
-                  <span className="rounded-full border border-glow-cyan/40 bg-glow-cyan/12 px-2.5 py-1 font-semibold text-glow-cyan">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-glow-cyan/35 bg-glow-cyan/10 px-3 py-1 text-xs font-medium text-glow-cyan">
+                    <FiCalendar className="h-3.5 w-3.5" />
                     {cert.date}
                   </span>
                   <a

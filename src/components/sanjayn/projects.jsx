@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { FiCalendar } from 'react-icons/fi';
 
 // Image imports
 import KongutbiImg       from '../../assert/image/TBI-WS.png';
@@ -232,11 +233,8 @@ const ProjectCard = ({ project, index, isVisible }) => {
 
         {/* Footer */}
         <div className="flex items-center justify-between pt-3 border-t border-border/30 mt-auto">
-          <span className="text-[11px] text-silver-muted flex items-center gap-1">
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-glow-cyan/35 bg-glow-cyan/10 px-3 py-1 text-[11px] font-medium text-glow-cyan">
+            <FiCalendar className="h-3 w-3" />
             {project.date}
           </span>
           <a

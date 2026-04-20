@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ExternalLink } from 'lucide-react';
+import { FiCalendar } from 'react-icons/fi';
 import lightsLogo from '../../assert/image/LIGTHS.png';
 import neovateLogo from '../../assert/image/Neovate-LOGO.png';
 import outliersLogo from '../../assert/image/OU.png';
@@ -263,7 +264,8 @@ const Experience = () => {
                       </h3>
 
                       <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span className="text-xs md:text-sm text-glow-cyan font-medium px-3 py-1 rounded-full bg-space-deep/70 border border-glow-cyan/30">
+                        <span className="inline-flex items-center gap-1.5 text-xs md:text-sm text-glow-cyan font-medium px-3 py-1 rounded-full bg-glow-cyan/10 border border-glow-cyan/35">
+                          <FiCalendar className="h-3.5 w-3.5" />
                           {exp.period}
                         </span>
                         <a
@@ -340,7 +342,8 @@ const Experience = () => {
               </div>
 
               <div className="flex flex-wrap justify-center gap-3 mb-5">
-                <span className="text-xs md:text-sm text-glow-cyan font-medium px-3 py-1 rounded-full bg-space-deep/70 border border-glow-cyan/30">
+                <span className="inline-flex items-center gap-1.5 text-xs md:text-sm text-glow-cyan font-medium px-3 py-1 rounded-full bg-glow-cyan/10 border border-glow-cyan/35">
+                  <FiCalendar className="h-3.5 w-3.5" />
                   {activeExperience.period}
                 </span>
                 <a
