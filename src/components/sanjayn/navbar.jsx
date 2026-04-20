@@ -6,6 +6,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
+  const mobileToggleButtonRef = useRef(null);
   const navLinks = [
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -49,14 +50,27 @@ const Navbar = () => {
   // Close mobile menu when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
+      if (!isMobileMenuOpen) {
+        return;
+      }
+
+      const clickedInsideMenu = mobileMenuRef.current && mobileMenuRef.current.contains(e.target);
+      const clickedToggleButton = mobileToggleButtonRef.current && mobileToggleButtonRef.current.contains(e.target);
+
+      if (!clickedInsideMenu && !clickedToggleButton) {
         setIsMobileMenuOpen(false);
       }
     };
+
     if (isMobileMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
     }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, [isMobileMenuOpen]);
 
   const scrollToSection = (id) => {
@@ -150,7 +164,10 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            ref={mobileToggleButtonRef}
+            type="button"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             className="lg:hidden p-2.5 text-silver-secondary hover:text-silver-primary transition-colors"
           >
             <svg

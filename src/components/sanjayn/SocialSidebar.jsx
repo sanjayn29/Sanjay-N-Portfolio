@@ -57,8 +57,8 @@ const SocialSidebar = () => {
   };
 
   return (
-    <div className="hidden lg:flex fixed right-4 top-1/2 -translate-y-1/2 z-50">
-      <div className="flex flex-col items-center gap-4 p-3 rounded-full bg-black/20 backdrop-blur-sm border border-glow-cyan/30 shadow-lg">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 lg:left-auto lg:right-4 lg:top-1/2 lg:bottom-auto lg:translate-x-0 lg:-translate-y-1/2">
+      <div className="flex flex-row lg:flex-col items-center gap-3 lg:gap-4 p-2.5 lg:p-3 rounded-full bg-black/20 backdrop-blur-sm border border-glow-cyan/30 shadow-lg">
         {socialLinks.map((social, idx) => (
           <button
             key={idx}
@@ -71,7 +71,7 @@ const SocialSidebar = () => {
             {social.icon}
             {hoveredIndex === idx && (
               <span
-                className="absolute right-full mr-4 px-3 py-1.5 text-sm font-semibold rounded-md whitespace-nowrap shadow-md"
+                className="hidden lg:block absolute right-full mr-4 px-3 py-1.5 text-sm font-semibold rounded-md whitespace-nowrap shadow-md"
                 style={{
                   top: '50%',
                   transform: 'translateY(-50%)',
