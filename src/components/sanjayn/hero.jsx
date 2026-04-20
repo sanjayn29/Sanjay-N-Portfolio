@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import SanjayImage from '../../assert/image/SanjayN.png';
 
+const roles = [
+  'A Freelancer',
+  'AI/ML Engineer',
+  'Software Developer',
+];
+
 const skills = [
   { name: 'React js', color: 'from-blue-500 to-cyan-500' },
   { name: 'Git & Github', color: 'from-gray-500 to-blue-500' },
@@ -18,6 +24,14 @@ const Hero = () => {
   const containerRef = useRef(null);
   const [containerSize, setContainerSize] = useState(520);
   const [positions, setPositions] = useState({});
+  const [activeRoleIndex, setActiveRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveRoleIndex(prev => (prev + 1) % roles.length);
+    }, 2000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   // Update container size and recalculate positions on resize
   useEffect(() => {
@@ -139,16 +153,22 @@ const Hero = () => {
             <span className="block text-white drop-shadow-md bg-gradient-silver bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
               Sanjay N
             </span>
-          </h1> 
-          {/* Subtitle */}
-          <p className="animate-fade-up animate-delay-200 text-silver-secondary text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto mb-4">
-            A Freelancer
-          </p>
-
-          {/* Subtitle */}
-          <p className="animate-fade-up animate-delay-250 text-silver-secondary text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto mb-4">
-            AI/ML Engineer & Full Stack Developer
-          </p>
+          </h1>
+          {/* Rotating role highlight */}
+          <div className="animate-fade-up animate-delay-200 relative h-9 overflow-hidden mb-4">
+            {roles.map((role, index) => (
+              <p
+                key={role}
+                className={`absolute inset-0 flex items-center lg:justify-start justify-center text-lg md:text-xl lg:text-2xl font-semibold transition-all duration-500
+                  ${index === activeRoleIndex
+                    ? 'translate-y-0 opacity-100 text-glow-cyan'
+                    : 'translate-y-6 opacity-0 text-silver-secondary'
+                  }`}
+              >
+                {role}
+              </p>
+            ))}
+          </div>
 
           {/* Description */}
           <p className="animate-fade-up animate-delay-300 text-silver-muted text-base md:text-lg max-w-xl mx-auto mb-6 leading-relaxed">
@@ -181,10 +201,10 @@ const Hero = () => {
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 max-w-full max-h-full">
                 <div className="relative w-full h-full bg-gradient-to-br from-glow-cyan to-glow-blue rounded-full flex items-center justify-center shadow-2xl border-2 border-glow-cyan/50 transform transition-transform duration-500 group-hover:scale-105">
                   <div className="w-52 h-52 sm:w-56 sm:h-56 bg-blue-900/95 rounded-2xl flex items-center justify-center shadow-inner max-w-full max-h-full">
-                    <img 
+                    <img
                       src={SanjayImage}
-                      alt="Sanjay N - Full Stack Developer and AI Engineer" 
-                      className="w-48 h-48 sm:w-52 sm:h-52 object-cover rounded-lg animate-float max-w-full max-h-full" 
+                      alt="Sanjay N - Full Stack Developer and AI Engineer"
+                      className="w-48 h-48 sm:w-52 sm:h-52 object-cover rounded-lg animate-float max-w-full max-h-full"
                     />
                   </div>
                 </div>
