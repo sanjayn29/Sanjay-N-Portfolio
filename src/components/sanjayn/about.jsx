@@ -15,31 +15,31 @@ const socials = [
     icon: SiWhatsapp,
     href: 'https://wa.me/919080581688',
     label: 'WhatsApp',
-    theme:"hover:border-blue-400 hover:bg-blue-500/10",
+    theme:'hover:border-[#25D366]/60 hover:bg-[#25D366]/10 hover:text-[#25D366]',
   },
   {
     icon: SiLinkedin,
     href: 'https://www.linkedin.com/in/sanjayn29',
     label: 'LinkedIn',
-    theme:"hover:border-blue-400 hover:bg-blue-500/10",
+    theme:'hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/10 hover:text-[#0A66C2]',
   },
   {
     icon: SiInstagram,
     href: 'https://www.instagram.com/_sanjay_n_',
     label: 'Instagram',
-    theme:"hover:border-blue-400 hover:bg-blue-500/10",
+    theme:'hover:border-[#E1306C]/60 hover:bg-[#E1306C]/10 hover:text-[#E1306C]',
   },
   {
     icon: SiGithub,
     href: 'https://github.com/sanjayn29',
     label: 'GitHub',
-    theme:"hover:border-blue-400 hover:bg-blue-500/10",
+    theme:'hover:border-white/40 hover:bg-white/10 hover:text-white',
   },
   {
     icon: SiLeetcode,
     href: 'https://leetcode.com/sanjayn29/',
     label: 'LeetCode',
-    theme: "hover:border-blue-400 hover:bg-blue-500/10",
+    theme: 'hover:border-[#FFA116]/60 hover:bg-[#FFA116]/10 hover:text-[#FFA116]',
   },
 ];
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SiLinkedin, SiGithub, SiLeetcode, SiInstagram, SiWhatsapp } from 'react-icons/si';
+import { FiMail } from 'react-icons/fi';
 
 const SocialSidebar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -8,29 +9,45 @@ const SocialSidebar = () => {
     {
       name: 'WhatsApp',
       url: 'https://wa.me/919080581688',
-      icon: <SiWhatsapp className="w-6 h-6" />
+      icon: <SiWhatsapp className="w-6 h-6" />,
+      color: 'hover:text-[#25D366]',
+      tooltipColor: '#25D366',
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/sanjayn29',
-      icon: <SiLinkedin className="w-6 h-6" />
-    },
-    {
-      name: 'GitHub',
-      url: 'https://github.com/sanjayn29',
-      icon: <SiGithub className="w-6 h-6" />
-    },
-    {
-      name: 'LeetCode',
-      url: 'https://leetcode.com/sanjayn29/',
-      icon: <SiLeetcode className="w-6 h-6" />
+      icon: <SiLinkedin className="w-6 h-6" />,
+      color: 'hover:text-[#0A66C2]',
+      tooltipColor: '#0A66C2',
     },
     {
       name: 'Instagram',
       url: 'https://www.instagram.com/_sanjay_n_',
-      icon: <SiInstagram className="w-6 h-6" />
+      icon: <SiInstagram className="w-6 h-6" />,
+      color: 'hover:text-[#E1306C]',
+      tooltipColor: '#E1306C',
     },
-    
+    {
+      name: 'GitHub',
+      url: 'https://github.com/sanjayn29',
+      icon: <SiGithub className="w-6 h-6" />,
+      color: 'hover:text-white',
+      tooltipColor: '#333333',
+    },
+    {
+      name: 'LeetCode',
+      url: 'https://leetcode.com/sanjayn29/',
+      icon: <SiLeetcode className="w-6 h-6" />,
+      color: 'hover:text-[#FFA116]',
+      tooltipColor: '#FFA116',
+    },
+    {
+      name: 'Mail',
+      url: 'mailto:sanjayn2904@gmail.com',
+      icon: <FiMail className="w-6 h-6" />,
+      color: 'hover:text-glow-cyan',
+      tooltipColor: '#22D3EE',
+    },
   ];
 
   const handleSocialClick = (url) => {
@@ -48,14 +65,19 @@ const SocialSidebar = () => {
             onClick={() => handleSocialClick(social.url)}
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
-            className="relative text-silver-muted hover:text-glow-cyan transition-all duration-300 hover:scale-110 p-0 bg-transparent border-none cursor-pointer"
+            className={`relative text-silver-muted transition-all duration-300 hover:scale-110 p-0 bg-transparent border-none cursor-pointer ${social.color}`}
             aria-label={social.name}
           >
             {social.icon}
             {hoveredIndex === idx && (
-              <span 
-                className="absolute right-full mr-4 px-3 py-1.5 text-sm font-semibold text-black bg-glow-cyan rounded-md whitespace-nowrap shadow-md"
-                style={{ top: '50%', transform: 'translateY(-50%)' }}
+              <span
+                className="absolute right-full mr-4 px-3 py-1.5 text-sm font-semibold rounded-md whitespace-nowrap shadow-md"
+                style={{
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  backgroundColor: social.tooltipColor,
+                  color: social.tooltipColor === '#333333' ? '#ffffff' : '#000000',
+                }}
               >
                 {social.name}
               </span>
