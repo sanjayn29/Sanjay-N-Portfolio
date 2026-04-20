@@ -148,11 +148,10 @@ const About = () => {
             <div className="order-1 lg:order-2 space-y-6">
               <div className="space-y-4">
                 <p className="text-base md:text-lg leading-relaxed text-silver-secondary">
-                  I build practical software and intelligent systems that solve real problems. I like blending clean engineering with bold product thinking so every project feels useful, sharp, and modern.
+                  I am passionate about solving real-world problems through practical software and intelligent solutions, always learning and applying new ideas to make a meaningful impact.
                 </p>
                 <p className="text-base md:text-lg leading-relaxed text-silver-secondary">
-                  Currently pursuing B.Tech in Artificial Intelligence and Machine Learning at Kongu Engineering College, Erode.
-                  <span className="text-glow-cyan font-semibold"> Open to collaborations that create real impact.</span>
+                  Currently pursuing B.Tech in Artificial Intelligence &amp; Machine Learning at Kongu Engineering College, Erode. Let's connect and collaborate!
                 </p>
               </div>
 

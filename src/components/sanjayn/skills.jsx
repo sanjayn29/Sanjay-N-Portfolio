@@ -4,18 +4,22 @@ import { Helmet } from 'react-helmet-async';
 // Local devicon SVG imports (bundled via Vite — no CDN, no tracking blocks)
 import icoJava       from 'devicon/icons/java/java-original.svg?url';
 import icoPython     from 'devicon/icons/python/python-original.svg?url';
+import icoR          from 'devicon/icons/r/r-original.svg?url';
 import icoC          from 'devicon/icons/c/c-original.svg?url';
 import icoPostgres   from 'devicon/icons/postgresql/postgresql-original.svg?url';
 import icoHtml       from 'devicon/icons/html5/html5-original.svg?url';
 import icoCss        from 'devicon/icons/css3/css3-original.svg?url';
 import icoJs         from 'devicon/icons/javascript/javascript-original.svg?url';
+import icoTs         from 'devicon/icons/typescript/typescript-original.svg?url';
 import icoReact      from 'devicon/icons/react/react-original.svg?url';
+import icoNext       from 'devicon/icons/nextjs/nextjs-original.svg?url';
 import icoTailwind   from 'devicon/icons/tailwindcss/tailwindcss-original.svg?url';
 import icoNode       from 'devicon/icons/nodejs/nodejs-original.svg?url';
 import icoExpress    from 'devicon/icons/express/express-original.svg?url';
 import icoFlask      from 'devicon/icons/flask/flask-original.svg?url';
 import icoMongo      from 'devicon/icons/mongodb/mongodb-original.svg?url';
 import icoFirebase   from 'devicon/icons/firebase/firebase-plain.svg?url';
+import icoSupabase   from 'devicon/icons/supabase/supabase-original.svg?url';
 import icoNumpy      from 'devicon/icons/numpy/numpy-original.svg?url';
 import icoPandas     from 'devicon/icons/pandas/pandas-original.svg?url';
 import icoSklearn    from 'devicon/icons/scikitlearn/scikitlearn-original.svg?url';
@@ -23,15 +27,17 @@ import icoTf         from 'devicon/icons/tensorflow/tensorflow-original.svg?url'
 import icoPytorch    from 'devicon/icons/pytorch/pytorch-original.svg?url';
 import icoKeras      from 'devicon/icons/keras/keras-original.svg?url';
 import icoOpencv     from 'devicon/icons/opencv/opencv-original.svg?url';
+import icoCanva      from 'devicon/icons/canva/canva-original.svg?url';
 import icoPostman    from 'devicon/icons/postman/postman-original.svg?url';
 import icoDocker     from 'devicon/icons/docker/docker-original.svg?url';
+import icoPowerBi    from 'devicon/icons/powershell/powershell-original.svg?url';
 import icoVscode     from 'devicon/icons/vscode/vscode-original.svg?url';
 import icoGithub     from 'devicon/icons/github/github-original.svg?url';
 import icoJupyter    from 'devicon/icons/jupyter/jupyter-original.svg?url';
 import icoFigma      from 'devicon/icons/figma/figma-original.svg?url';
 
 const rotatingHighlights = [
-  '27+ technologies across the full stack',
+  '34+ technologies across the full stack',
   'Languages · Frameworks · Databases · AI/ML tools',
   'From frontend pixels to backend APIs',
   'TensorFlow · PyTorch · React · Firebase & more',
@@ -72,13 +78,16 @@ const Skills = () => {
     // Programming Languages
     { name: 'Java',        category: 'languages', iconSrc: icoJava },
     { name: 'Python',      category: 'languages', iconSrc: icoPython },
+    { name: 'R Language',  category: 'languages', iconSrc: icoR },
     { name: 'C',           category: 'languages', iconSrc: icoC },
     { name: 'SQL',         category: 'languages', iconSrc: icoPostgres },
     // Frontend Development
     { name: 'HTML',        category: 'frontend',  iconSrc: icoHtml },
     { name: 'CSS',         category: 'frontend',  iconSrc: icoCss },
     { name: 'JavaScript',  category: 'frontend',  iconSrc: icoJs },
+    { name: 'TypeScript',  category: 'frontend',  iconSrc: icoTs },
     { name: 'React.js',    category: 'frontend',  iconSrc: icoReact },
+    { name: 'Next.js',     category: 'frontend',  iconSrc: icoNext },
     { name: 'Tailwind CSS',category: 'frontend',  iconSrc: icoTailwind },
     // Backend Development
     { name: 'Node.js',     category: 'backend',   iconSrc: icoNode },
@@ -88,6 +97,7 @@ const Skills = () => {
     { name: 'MongoDB',     category: 'database',  iconSrc: icoMongo },
     { name: 'PostgreSQL',  category: 'database',  iconSrc: icoPostgres },
     { name: 'Firebase',    category: 'database',  iconSrc: icoFirebase },
+    { name: 'Supabase',    category: 'database',  iconSrc: icoSupabase },
     // Machine Learning & Deep Learning
     { name: 'NumPy',       category: 'ml',        iconSrc: icoNumpy },
     { name: 'Pandas',      category: 'ml',        iconSrc: icoPandas },
@@ -98,6 +108,8 @@ const Skills = () => {
     { name: 'OpenCV',      category: 'ml',        iconSrc: icoOpencv },
     // Tools
     { name: 'Postman',     category: 'tools',     iconSrc: icoPostman },
+    { name: 'Canva',       category: 'tools',     iconSrc: icoCanva },
+    { name: 'PowerBI',     category: 'tools',     iconSrc: icoPowerBi },
     { name: 'Docker',      category: 'tools',     iconSrc: icoDocker },
     { name: 'VS Code',     category: 'tools',     iconSrc: icoVscode },
     { name: 'Git & GitHub',category: 'tools',     iconSrc: icoGithub },

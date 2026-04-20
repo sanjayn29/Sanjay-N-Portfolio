@@ -39,7 +39,7 @@ const SanjayN = () => {
         and change on every chunk load.
       */}
       <Helmet>
-        <title>Sanjay N | Full Stack Developer &amp; AI Engineer</title>
+        <title>Sanjay N | Freelancer</title>
         <meta
           name="description"
           content="Sanjay N – Full Stack Developer, AI Engineer & Freelancer. Explore my projects, skills, achievements, and professional journey."
