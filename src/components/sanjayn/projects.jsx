@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FiCalendar } from 'react-icons/fi';
+import { FiCalendar, FiExternalLink } from 'react-icons/fi';
+import { SiGithub } from 'react-icons/si';
 
 // Image imports
 import KongutbiImg       from '../../assert/image/TBI-WS.png';
@@ -31,7 +32,7 @@ const FILTERS = ['All', 'Web Development', 'E-commerce', 'FinTech / AI', 'AI / C
 
 const rotatingHighlights = [
   'Full-stack web, mobile & AI solutions',
-  'Built with React, Python, Firebase & more',
+  'Built with React, Python, Supabase & more',
   'From idea to deployment — end to end',
   'Real clients · live products · measurable impact',
   'Spanning FinTech, HealthTech, EdTech & beyond',
@@ -43,8 +44,9 @@ const projects = [
     description: 'Redesigned College incubator website with modern UI, improved user experience and handled full deployment pipeline.',
     tech: ['React', 'TailwindCSS', 'Firebase'],
     category: 'Web Development',
-    date: 'Sept 2025 - Present',
-    link: 'https://antiquewhite-rat-516664.hostingersite.com',
+    date: 'Jul 2025 - Feb 2026',
+    siteLink: 'https://antiquewhite-rat-516664.hostingersite.com',
+    githubLink: null,
     image: KongutbiImg,
   },
   {
@@ -52,8 +54,9 @@ const projects = [
     description: 'Developed full-stack e-commerce site with product catalog, cart, Payment Integration, and order management.',
     tech: ['React', 'TailwindCSS', 'Payment APIs', 'Firebase'],
     category: 'E-commerce',
-    date: 'July 2025 - Aug 2025',
-    link: 'https://www.arameyecare.com',
+    date: 'Jul 2025 - Aug 2025',
+    siteLink: 'https://www.arameyecare.com',
+    githubLink: null,
     image: ArameyecareImg,
   },
   {
@@ -62,7 +65,8 @@ const projects = [
     tech: ['React Native', 'Flask', 'LangChain', 'Firebase', 'OCR'],
     category: 'FinTech / AI',
     date: 'Apr 2025 - May 2025',
-    link: 'https://www.outliersunited.com/',
+    siteLink: 'https://www.outliersunited.com/',
+    githubLink: null,
     image: CashmanImg,
   },
   {
@@ -70,8 +74,9 @@ const projects = [
     description: 'Web-based finance application with expense tracking, budgeting tools and an integrated AI chatbot for financial assistance.',
     tech: ['React', 'TailwindCSS', 'Firebase', 'AI Integration', 'Vercel'],
     category: 'FinTech / AI',
-    date: 'Aug 2025 - Sept 2025',
-    link: 'https://smartspend-iota.vercel.app/',
+    date: 'Aug 2025 - Sep 2025',
+    siteLink: 'https://smartspend-iota.vercel.app/',
+    githubLink: null,
     image: SmartspendImg,
   },
   {
@@ -79,26 +84,29 @@ const projects = [
     description: 'Portfolio website for Neovate, a technology startup focused on web & App development and AI-driven services.',
     tech: ['React', 'TailwindCSS', 'EmailJS'],
     category: 'Web Development',
-    date: 'Oct 2025 - Nov 2025',
-    link: 'https://www.neovateai.tech',
+    date: 'Nov 2025 - Jan 2026',
+    siteLink: 'https://neovateai.tech/',
+    githubLink: null,
     image: NeovateImg,
   },
   {
     title: 'FabSpector – AI Fabric Defect Inspector',
-    description: 'Deep learning model to detect and classify fabric defects. Integrated with a web interface and PostgreSQL database.',
+    description: 'Web application designed for fabric defect detection and analysis. Provides a comprehensive dashboard to visualize and manage quality control in fabric manufacturing.',
     tech: ['Computer Vision', 'HTML', 'CSS', 'PostgreSQL'],
     category: 'AI / Computer Vision',
     date: 'Nov 2025 - Dec 2025',
-    link: 'https://github.com/sanjayn29/SiH-Fabric-Defect-Detector',
+    siteLink: null,
+    githubLink: 'https://github.com/sanjayn29/SiH-Fabric-Defect-Detector-Template',
     image: FabspectorImg,
   },
   {
     title: 'EV Log Analyser – AI E-Log Platform',
-    description: 'AI-powered platform for automated EV charging log analysis, anomaly detection and insight generation using LLM-based reasoning.',
+    description: 'Zeon Logs — a modern web app to analyze and manage OCPP (Open Charge Point Protocol) charger log files with AI-driven anomaly detection and insight generation.',
     tech: ['Python', 'AI/LLM', 'React', 'Flask'],
     category: 'AI / Data',
     date: 'Jan 2026 - Feb 2026',
-    link: 'https://github.com/sanjayn29',
+    siteLink: null,
+    githubLink: 'https://github.com/sanjayn29/Zeon-Logs',
     image: ZeonImg,
   },
   {
@@ -106,59 +114,67 @@ const projects = [
     description: 'Interactive Power BI dashboard analysing social media engagement metrics, audience trends, and content performance.',
     tech: ['Power BI', 'Data Analytics', 'DAX'],
     category: 'Data Analytics',
-    date: 'Oct 2025 - Nov 2025',
-    link: 'https://github.com/sanjayn29',
+    date: 'Nov 2025',
+    siteLink: null,
+    githubLink: 'https://github.com/sanjayn29/PowerBI-Social-Media-Engagement-Report',
     image: SocialMediaImg,
   },
   {
-    title: 'PocketCare – Health & Finance Tracker',
-    description: 'React Native app for tracking health goals, daily tasks, and finances with an integrated AI assistant and push notifications.',
+    title: 'PocketCare – Productivity Mobile App',
+    description: 'PocketCare is a personal life-management app that helps users take care of their daily activities such as finance, health, learning, and productivity in one place.',
     tech: ['React Native', 'Expo', 'Firebase', 'AI Integration'],
     category: 'Mobile App / AI',
     date: 'Mar 2026 - Present',
-    link: 'https://github.com/sanjayn29',
+    siteLink: 'https://drive.google.com/drive/folders/1_0beXOkr6RM4Df_t2iXplcdsz6FKRx1j?usp=drive_link',
+    githubLink: null,
     image: PocketCareImg,
   },
   {
     title: 'Muthu Ambulance Service – Booking',
-    description: 'Web platform for ambulance booking with real-time availability tracking, location-based dispatch, and admin dashboard.',
+    description: 'Official website for CMuthu Ambulance Service, providing quick and reliable access to emergency ambulance services with real-time availability and admin dashboard.',
     tech: ['React', 'TailwindCSS', 'Firebase'],
     category: 'Web Development',
-    date: 'Dec 2025 - Jan 2026',
-    link: 'https://github.com/sanjayn29',
+    date: 'Jan 2026 - Apr 2026',
+    siteLink: 'https://muthuambulance.works/',
+    githubLink: null,
     image: MasImg,
   },
   {
     title: 'Mahamitra Boutique – E-Commerce',
-    description: 'Full-stack e-commerce platform for a boutique with product management, cart, order tracking and payment integration.',
-    tech: ['React', 'TailwindCSS', 'Firebase', 'Payment APIs'],
+    description: 'Mahamitra is a modern eCommerce web application designed to provide a smooth and reliable online shopping experience with product management, cart, and payment integration.',
+    tech: ['React', 'TailwindCSS', 'Supabase', 'Email.JS', 'Payment APIs'],
     category: 'E-commerce',
-    date: 'Feb 2026 - Mar 2026',
-    link: 'https://github.com/sanjayn29',
+    date: 'Jan 2026 - Apr 2026',
+    siteLink: 'https://www.mahamitra.app/',
+    githubLink: null,
     image: MahimitraImg,
   },
   {
-    title: 'Image Animation Website',
-    description: 'Creative website showcasing smooth image-based animations and interactive transitions built with modern CSS and JavaScript.',
+    title: 'Image Animation Jewellery',
+    description: 'Image Animation Jewellery is a creative web project that showcases jewellery using frame-based image animations and interactive transitions.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     category: 'Web Development',
-    date: 'Sept 2024 - Oct 2024',
-    link: 'https://github.com/sanjayn29',
+    date: 'Mar 2026',
+    siteLink: null,
+    githubLink: 'https://github.com/sanjayn29/Image-Animation-Jewellery',
     image: ImageAnimationImg,
   },
 ];
 
 const parseEndTimestamp = (dateStr) => {
   const now = Date.now();
-  const endPart = dateStr.split(' - ')[1];
+  const parts = dateStr.split(' - ');
+  const endPart = parts.length > 1 ? parts[1] : parts[0];
   if (endPart === 'Present') return now;
-  const normalized = endPart.replace('Sept', 'Sep');
-  return new Date(`${normalized} 28`).getTime();
+  const normalized = endPart.replace('Sept', 'Sep').replace('July', 'Jul');
+  return new Date(`${normalized} 28`).getTime() || now;
 };
 
 // ─── Project Card ──────────────────────────────────────────────────────────
 const ProjectCard = ({ project, index, isVisible }) => {
   const colors = CATEGORY_COLORS[project.category] || CATEGORY_COLORS['Web Development'];
+  // Primary hover link — prefer siteLink, fall back to githubLink
+  const primaryLink = project.siteLink || project.githubLink || '#';
 
   return (
     <div
@@ -187,9 +203,9 @@ const ProjectCard = ({ project, index, isVisible }) => {
           {project.category}
         </span>
 
-        {/* External link icon — appears on hover */}
+        {/* Primary link icon — appears on hover */}
         <a
-          href={project.link}
+          href={primaryLink}
           target="_blank"
           rel="noopener noreferrer"
           className="absolute top-3 right-3 w-8 h-8 rounded-full bg-space-deep/80 border border-glow-cyan/40
@@ -197,9 +213,7 @@ const ProjectCard = ({ project, index, isVisible }) => {
             transition-all duration-300 hover:bg-glow-cyan/20"
           aria-label={`Open ${project.title}`}
         >
-          <svg className="w-4 h-4 text-glow-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
+          <FiExternalLink className="w-4 h-4 text-glow-cyan" />
         </a>
       </div>
 
@@ -237,19 +251,34 @@ const ProjectCard = ({ project, index, isVisible }) => {
             <FiCalendar className="h-3 w-3" />
             {project.date}
           </span>
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-xs font-semibold flex items-center gap-1 transition-all duration-300
-              ${colors.text} hover:opacity-80`}
-          >
-            View Project
-            <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform duration-300"
-              fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+          <div className="flex items-center gap-2">
+            {/* GitHub link */}
+            {project.githubLink && (
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-silver-secondary hover:text-white transition-colors duration-300"
+                aria-label={`GitHub: ${project.title}`}
+              >
+                <SiGithub className="w-3.5 h-3.5" />
+                GitHub
+              </a>
+            )}
+            {/* Live site link */}
+            {project.siteLink && (
+              <a
+                href={project.siteLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-1 text-xs font-semibold transition-all duration-300 ${colors.text} hover:opacity-80`}
+                aria-label={`Live site: ${project.title}`}
+              >
+                <FiExternalLink className="w-3 h-3" />
+                Live Site
+              </a>
+            )}
+          </div>
         </div>
       </div>
 
