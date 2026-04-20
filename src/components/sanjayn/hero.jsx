@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { SiLeetcode, SiGithub, SiLinkedin, SiWhatsapp, SiInstagram } from 'react-icons/si';
+import { FiMail } from 'react-icons/fi';
 import AboutImage from '../../assert/image/mine.jpg';
 
 const roles = [
@@ -11,6 +13,15 @@ const quickHighlights = [
   'Problem-Solving Builder',
   'Practical AI + Product Thinking',
   'Open to Real-World Collaborations',
+];
+
+const socialLinks = [
+  { name: 'WhatsApp',  href: 'https://wa.me/919080581688',                    icon: SiWhatsapp,  color: 'hover:text-[#25D366] hover:border-[#25D366]/60 hover:bg-[#25D366]/10' },
+  { name: 'Instagram', href: 'https://www.instagram.com/_sanjay_n_',           icon: SiInstagram, color: 'hover:text-[#E1306C] hover:border-[#E1306C]/60 hover:bg-[#E1306C]/10' },
+  { name: 'LinkedIn',  href: 'https://www.linkedin.com/in/sanjayn29',          icon: SiLinkedin,  color: 'hover:text-[#0A66C2] hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/10' },
+  { name: 'GitHub',    href: 'https://github.com/sanjayn29',                   icon: SiGithub,    color: 'hover:text-white hover:border-white/40 hover:bg-white/10' },
+  { name: 'LeetCode',  href: 'https://leetcode.com/sanjayn29/',                icon: SiLeetcode,  color: 'hover:text-[#FFA116] hover:border-[#FFA116]/60 hover:bg-[#FFA116]/10' },
+  { name: 'Email',     href: 'mailto:sanjayn29.aiml@gmail.com',                icon: FiMail,      color: 'hover:text-glow-cyan hover:border-glow-cyan/60 hover:bg-glow-cyan/10' },
 ];
 
 const Hero = () => {
@@ -118,6 +129,21 @@ const Hero = () => {
             >
               Get In Touch
             </button>
+          </div>
+
+          <div className="animate-fade-up animate-delay-500 mt-5 flex items-center justify-center lg:justify-start gap-2.5">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.name}
+                className={`w-11 h-11 rounded-xl border border-border/50 bg-space-card/40 flex items-center justify-center text-silver-muted transition-all duration-300 ${link.color}`}
+              >
+                <link.icon className="w-5 h-5" />
+              </a>
+            ))}
           </div>
         </div>
 
