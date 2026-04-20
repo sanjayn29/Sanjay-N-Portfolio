@@ -60,7 +60,8 @@ const Achievements = () => {
       description: 'AI-powered E-log analysis platform',
       image: Electrothon2026Img,
       date: '2026',
-      fullDate: '2026-01-25',
+      fullDate: '2026-02-19',
+      displayDate: 'Feb 2026',
       category: '1st Prize',
       link: 'https://www.linkedin.com/posts/sanjayn29_electrothon2k26-firstprize-chargesense-activity-7431196738872492032-W1fH',
     },
@@ -71,6 +72,7 @@ const Achievements = () => {
       image: Hacksagon2026Img,
       date: '2026',
       fullDate: '2026-02-20',
+      displayDate: 'Feb 2026',
       category: '1st Prize',
       link: 'https://www.linkedin.com/posts/sanjayn29_hackathon-freelancersclub-ai-activity-7431371098090536960-lrMw',
     },
@@ -82,6 +84,7 @@ const Achievements = () => {
       image: Dec2025Img,
       date: '2025',
       fullDate: '2025-12-08',
+      displayDate: 'Dec 2025',
       category: 'Finalist',
       link: 'https://www.linkedin.com/posts/sanjayn29_sih2025-smartindiahackathon-hackathonexperience-activity-7408162536996597760-aPqo?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
     },
@@ -92,6 +95,7 @@ const Achievements = () => {
       image: Sept2025Img,
       date: '2025',
       fullDate: '2025-09-20',
+      displayDate: 'Sept 2025',
       category: '1st Prize',
       link: 'https://www.linkedin.com/posts/sanjayn29_smartindiahackathon-teamwork-innovation-activity-7376306740541177857-KX6R?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
     },
@@ -102,6 +106,7 @@ const Achievements = () => {
       image: Sept2025IbmImg,
       date: '2025',
       fullDate: '2025-09-16',
+      displayDate: 'Sept 2025',
       category: '1st Prize',
       link: 'https://www.linkedin.com/posts/sanjayn29_genai-hackathon-ibm-activity-7374820219371982848-25jS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
     },
@@ -112,6 +117,7 @@ const Achievements = () => {
       image: Apr2025Img,
       date: '2025',
       fullDate: '2025-04-11',
+      displayDate: 'Apr 2025',
       category: 'Best Innovation',
       link: 'https://www.linkedin.com/posts/sandeepmareeswaran_hackathon-innovation-mentorship-ugcPost-7318833641831153664-6UnE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
     },
@@ -122,6 +128,7 @@ const Achievements = () => {
       image: Mar2025Img,
       date: '2025',
       fullDate: '2025-03-10',
+      displayDate: 'Mar 2025',
       category: 'Runner-up',
       link: 'https://www.linkedin.com/posts/sanjayn29_kec-kechackathon2025-hackathon-activity-7306903277680357377-FCnX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
     },
@@ -132,6 +139,7 @@ const Achievements = () => {
       image: Nov2024Img,
       date: '2024',
       fullDate: '2024-11-09',
+      displayDate: 'Nov 2024',
       category: '3rd Prize',
       link: 'https://www.linkedin.com/posts/sanjayn29_codingcontest-sdcfest2024-codeclash-activity-7261320712584318976-y9jL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
     },
@@ -142,6 +150,7 @@ const Achievements = () => {
       image: Sept2024Img,
       date: '2024',
       fullDate: '2024-09-11',
+      displayDate: 'Sept 2024',
       category: '2nd Prize',
       link: 'https://www.linkedin.com/posts/sanjayn29_codingchallenge-ai-symposium-activity-7247119094980722688-MEym?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
     },
@@ -152,6 +161,7 @@ const Achievements = () => {
       image: April2024Img,
       date: '2024',
       fullDate: '2024-04-13',
+      displayDate: 'Apr 2024',
       category: '2nd Prize',
       link: 'https://www.linkedin.com/posts/sanjayn29_achievement-sloganwriting-redribbionclub-activity-7210675100243677185-r-7Y?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE6uCn0BhkN04Y115I8zfMXgfhIum5R1PQk',
     },
@@ -179,9 +189,9 @@ const Achievements = () => {
   return (
     <>
       <Helmet>        <meta
-          name="description"
-          content="View Sanjay N's achievements including hackathon wins, coding competition prizes, and recognition in AI, software development, and innovation."
-        />
+        name="description"
+        content="View Sanjay N's achievements including hackathon wins, coding competition prizes, and recognition in AI, software development, and innovation."
+      />
         <meta property="og:title" content="Achievements & Awards | Sanjay N" />
         <meta property="og:description" content="View Sanjay N's achievements including hackathon wins, coding competition prizes, and recognition in AI, software development, and innovation." />
         <meta property="og:url" content="https://sanjayn.me/#achievements" />
@@ -273,7 +283,7 @@ const Achievements = () => {
                         <div className="mt-4 flex items-center justify-between border-t border-border/55 pt-3">
                           <span className="inline-flex items-center gap-1.5 rounded-full border border-glow-cyan/35 bg-glow-cyan/10 px-3 py-1 text-xs font-medium text-glow-cyan">
                             <FiCalendar className="h-3.5 w-3.5" />
-                            {achievement.fullDate}
+                            {achievement.displayDate}
                           </span>
                           <a
                             href={achievement.link}
