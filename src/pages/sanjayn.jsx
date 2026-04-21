@@ -38,7 +38,7 @@ const SanjayN = () => {
         and change on every chunk load.
       */}
       <Helmet>
-        <title>Sanjay N | AI ML Engineer | Full Stack Developer Portfolio</title>
+        <title>Sanjay N | AI ML Engineer | Software Developer</title>
         <meta
           name="description"
           content="Sanjay N AI ML Engineer Portfolio featuring AI and ML projects, React full stack development, mobile apps, and intelligent software solutions."
@@ -47,13 +47,13 @@ const SanjayN = () => {
           name="keywords"
           content="Sanjay N AI ML Engineer Portfolio, Sanjay N AI Engineer, Sanjay N Full Stack Developer, AI ML Engineer Portfolio India, React AI Developer India, AI Engineer Kongu Engineering College"
         />
-        <meta property="og:title" content="Sanjay N | AI ML Engineer | Full Stack Developer Portfolio" />
+        <meta property="og:title" content="Sanjay N | AI ML Engineer | Software Developer" />
         <meta property="og:description" content="Sanjay N AI ML Engineer Portfolio with full stack React projects, AI products, and practical machine learning solutions." />
         <meta property="og:image" content="https://sanjayn.me/preview.png" />
         <meta property="og:url" content="https://sanjayn.me/" />
         <meta property="og:type" content="profile" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sanjay N | AI ML Engineer | Full Stack Developer Portfolio" />
+        <meta name="twitter:title" content="Sanjay N | AI ML Engineer | Software Developer" />
         <meta name="twitter:description" content="Sanjay N AI ML Engineer Portfolio with AI applications, React development, and end-to-end software projects." />
         <meta name="twitter:image" content="https://sanjayn.me/preview.png" />
       </Helmet>
