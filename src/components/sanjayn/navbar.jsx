@@ -93,34 +93,11 @@ const Navbar = () => {
           {/* Animated Logo with Character */}
           <button
             onClick={() => scrollToSection('hero')}
-            className="group relative text-2xl md:text-3xl font-display font-bold lg:mr-10"
+            className="group relative lg:mr-10"
           >
-            <div className="relative flex items-end">
-              {/* S with Hat */}
-              <span className="relative inline-block">
-                {/* Top Hat */}
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 transition-all duration-300 group-hover:-translate-y-1 group-hover:rotate-[-10deg]">
-                  <svg width="20" height="16" viewBox="0 0 20 16" className="drop-shadow-lg">
-                    {/* Hat brim */}
-                    <ellipse cx="10" cy="14" rx="10" ry="2" fill="#22D3EE" />
-                    {/* Hat top */}
-                    <rect x="4" y="4" width="12" height="10" rx="1" fill="#0891B2" />
-                    <rect x="4" y="4" width="12" height="3" rx="1" fill="#22D3EE" />
-                    {/* Hat band */}
-                    <rect x="4" y="10" width="12" height="2" fill="#60A5FA" />
-                    {/* Shine */}
-                    <rect x="6" y="5" width="2" height="4" rx="1" fill="white" opacity="0.3" />
-                  </svg>
-                </span>
-                <span className="text-glow-cyan group-hover:animate-bounce-subtle">S</span>
-              </span>
-              {/* SANJAY */}
-              <span className="bg-gradient-to-r from-glow-cyan via-silver-metallic to-glow-blue bg-[length:200%_auto] bg-clip-text text-transparent uppercase tracking-wide">ANJAY</span>
-              {/* Space */}
-              <span className="w-2" />
-              {/* N Text with Blue Effect */}
-              <span className="relative inline-block group-hover:animate-bounce-subtle" style={{ animationDelay: '0.1s' }}>
-                <span className="bg-gradient-to-r from-glow-cyan via-silver-metallic to-glow-blue bg-[length:200%_auto] bg-clip-text text-transparent uppercase tracking-wide">N</span>
+            <div className="relative flex items-center">
+              <span className="font-signature font-bold text-[2rem] md:text-[2.4rem] leading-[1.2] pb-0.5 whitespace-nowrap bg-gradient-to-r from-glow-cyan via-silver-metallic to-glow-blue bg-[length:200%_auto] bg-clip-text text-transparent tracking-[0.02em] drop-shadow-[0_2px_10px_rgba(34,211,238,0.35)]">
+                Sanjay N
               </span>
             </div>
             {/* Glow effect behind entire logo */}

@@ -92,20 +92,10 @@ const Footer = () => {
               className="group w-fit cursor-pointer transition-all duration-500"
             >
               <div className={`transition-all duration-700 ease-out ${isLogoHovered ? 'scale-105' : ''}`}>
-                <div className="relative flex items-end text-2xl font-display font-bold">
-                  <span className="relative inline-block mr-0.5">
-                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 transition-all duration-300 group-hover:-translate-y-1">
-                      <svg width="20" height="16" viewBox="0 0 20 16" className="drop-shadow-lg">
-                        <ellipse cx="10" cy="14" rx="10" ry="2" fill="#22D3EE" />
-                        <rect x="4" y="4" width="12" height="10" rx="1" fill="#0891B2" />
-                        <rect x="4" y="4" width="12" height="3" rx="1" fill="#22D3EE" />
-                        <rect x="4" y="10" width="12" height="2" fill="#60A5FA" />
-                        <rect x="6" y="5" width="2" height="4" rx="1" fill="white" opacity="0.3" />
-                      </svg>
-                    </span>
-                    <span className="text-glow-cyan">S</span>
+                <div className="relative text-[2.6rem] leading-[1.15] pb-0.5">
+                  <span className="font-signature font-bold bg-gradient-to-r from-glow-cyan via-silver-metallic to-glow-blue bg-[length:200%_auto] bg-clip-text text-transparent tracking-[0.02em] drop-shadow-[0_2px_10px_rgba(34,211,238,0.35)]">
+                    Sanjay N
                   </span>
-                  <span className="bg-gradient-to-r from-glow-cyan via-silver-metallic to-glow-blue bg-[length:200%_auto] bg-clip-text text-transparent uppercase tracking-wide">ANJAY N</span>
                 </div>
               </div>
             </button>
@@ -190,7 +180,7 @@ const Footer = () => {
         <div className="text-center">
           <p className="text-silver-muted text-xs">
             © {currentYear}{' '}
-            <span className="text-glow-cyan font-semibold">Sanjay N</span>
+            <span className="text-glow-cyan font-signature font-bold text-xl">Sanjay N</span>
             {' '}· All rights reserved
           </p>
         </div>

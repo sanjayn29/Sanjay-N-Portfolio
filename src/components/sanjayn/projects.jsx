@@ -155,8 +155,8 @@ const projects = [
     tech: ['Next.js', 'TailwindCSS', 'Framer Motion'],
     category: 'Web Development',
     date: 'Mar 2026',
-    siteLink: null,
-    githubLink: 'https://github.com/sanjayn29/Image-Animation-Jewellery',
+    siteLink: 'https://animation-jewellery.vercel.app',
+    githubLink: null,
     image: ImageAnimationImg,
   },
 ];

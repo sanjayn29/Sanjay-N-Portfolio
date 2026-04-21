@@ -68,8 +68,8 @@ const Hero = () => {
           </p>
 
           {/* Main Heading */}
-          <h1 className="animate-fade-up animate-delay-100 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
-            <span className="block text-white drop-shadow-md bg-gradient-silver bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
+          <h1 className="animate-fade-up animate-delay-100 text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.25] mb-4">
+            <span className="block font-signature font-bold py-2 px-1 text-white tracking-[0.02em] drop-shadow-[0_2px_10px_rgba(34,211,238,0.35)]">
               Sanjay N
             </span>
           </h1>
@@ -90,11 +90,11 @@ const Hero = () => {
           </div>
 
           {/* Description */}
-          <p className="animate-fade-up animate-delay-300 text-silver-muted text-base md:text-lg max-w-xl mx-auto mb-3 leading-relaxed">
+          <p className="animate-fade-up animate-delay-300 text-white text-base md:text-lg max-w-xl mx-auto mb-3 leading-relaxed">
             I am passionate about solving real-world problems through practical software and intelligent solutions, and always learning and applying new ideas to make a meaningful impact.
           </p>
-          <p className="animate-fade-up animate-delay-300 text-silver-secondary text-sm md:text-base max-w-xl mx-auto mb-6 leading-relaxed">
-            Currently pursuing B.Tech in{' '}
+          <p className="animate-fade-up animate-delay-300 text-white text-sm md:text-base max-w-xl mx-auto mb-6 leading-relaxed">
+            Currently pursuing <span className="text-glow-cyan font-semibold">B.Tech</span> in{' '}
             <span className="text-glow-cyan font-semibold">Artificial Intelligence and Machine Learning</span>.
             {' '}at Kongu Engineering College.
           </p>
