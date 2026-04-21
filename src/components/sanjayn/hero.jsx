@@ -69,6 +69,7 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="animate-fade-up animate-delay-100 text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.25] mb-4">
+            <span className="sr-only">Sanjay N AI ML Engineer Portfolio</span>
             <span className="block font-signature font-bold py-2 px-1 text-white tracking-[0.02em] drop-shadow-[0_2px_10px_rgba(34,211,238,0.35)]">
               Sanjay N
             </span>

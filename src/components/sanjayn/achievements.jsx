@@ -29,6 +29,13 @@ const Achievements = () => {
   const linkedInProfile = 'https://www.linkedin.com/in/sanjayn29';
 
   useEffect(() => {
+    // Prevent intermittent hidden state on some mobile browsers where
+    // intersection callbacks can be delayed or skipped during fast scroll.
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      setIsVisible(true);
+      return undefined;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -38,9 +45,7 @@ const Achievements = () => {
       { threshold: 0.15 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -188,10 +193,11 @@ const Achievements = () => {
 
   return (
     <>
-      <Helmet>        <meta
-        name="description"
-        content="View Sanjay N's achievements including hackathon wins, coding competition prizes, and recognition in AI, software development, and innovation."
-      />
+      <Helmet>
+        <meta
+          name="description"
+          content="View Sanjay N's achievements including hackathon wins, coding competition prizes, and recognition in AI, software development, and innovation."
+        />
         <meta property="og:title" content="Achievements & Awards | Sanjay N" />
         <meta property="og:description" content="View Sanjay N's achievements including hackathon wins, coding competition prizes, and recognition in AI, software development, and innovation." />
         <meta property="og:url" content="https://sanjayn.me/#achievements" />

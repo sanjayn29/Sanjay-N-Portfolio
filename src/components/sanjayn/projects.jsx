@@ -180,6 +180,22 @@ const parseEndTimestamp = (dateStr) => {
   return new Date(parseInt(year, 10), monthIndex, 28).getTime();
 };
 
+const projectsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Sanjay N AI ML Engineer Portfolio Projects',
+  itemListElement: projects.map((project, index) => ({
+    '@type': 'SoftwareSourceCode',
+    position: index + 1,
+    name: project.title,
+    description: project.description,
+    url: project.siteLink || project.githubLink || 'https://sanjayn.me/#projects',
+    codeRepository: project.githubLink || undefined,
+    keywords: [project.category, ...project.tech].join(', '),
+    programmingLanguage: project.tech.join(', '),
+  })),
+};
+
 // ─── Project Card ──────────────────────────────────────────────────────────
 const ProjectCard = ({ project, index, isVisible }) => {
   const colors = CATEGORY_COLORS[project.category] || CATEGORY_COLORS['Web Development'];
@@ -346,12 +362,17 @@ const Projects = () => {
       <Helmet>
         <meta
           name="description"
-          content="View Sanjay N's featured projects including AI-powered applications, web development, and innovative solutions in FinTech and AgriTech."
+          content="Sanjay N AI ML Engineer Portfolio projects: full stack apps, AI and machine learning solutions, computer vision, fintech products, and mobile app builds."
         />
-        <meta property="og:title" content="Projects Portfolio | Sanjay N" />
-        <meta property="og:description" content="View Sanjay N's featured projects including AI-powered applications, web development, and innovative solutions in FinTech and AgriTech." />
+        <meta
+          name="keywords"
+          content="AI ML Engineer Portfolio projects, React AI projects, Computer Vision portfolio, Full Stack Developer projects, Sanjay N portfolio"
+        />
+        <meta property="og:title" content="Sanjay N Projects | AI ML Engineer Portfolio" />
+        <meta property="og:description" content="Explore AI, ML, React and full stack projects by Sanjay N including computer vision, fintech, data analytics, and mobile app solutions." />
         <meta property="og:url" content="https://sanjayn.me/#projects" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify(projectsSchema)}</script>
       </Helmet>
 
       <section id="projects" ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
